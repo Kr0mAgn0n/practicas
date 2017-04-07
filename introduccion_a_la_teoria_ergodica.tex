@@ -1,0 +1,111 @@
+\section{Introducción a la Teoría Ergódica}
+
+\begin{definicion}
+	$\mathcal{M}$ es el conjunto de todas las medidas de probabilidad, $\mathcal{M}_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y $\varepsilon_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y ergódicas.
+\end{definicion}
+
+\begin{definicion}
+	Sea $M$ un espacio métrico compacto, $f \in \mathcal{C}(M,M)$ y $f_*: \mathcal{M} \rightarrow \mathcal{M}$. Entonces para cualquier conjunto $A \subset M$ medible $f_*$ se define como
+	
+	\begin{equation}
+		f_*\mu(A) = \mu(f^{-1}(A))
+	\end{equation}
+\end{definicion}
+
+\begin{lema}\label{lema1_krylov-bugoliubov}
+	Sea $M$ un espacio métrico compacto, $\varphi \in L^1_\mu (M,\mathbb{R})$. Entonces
+	
+	\begin{equation}
+		\int \varphi d(f_*\mu)=\int \varphi \circ f d\mu
+	\end{equation}
+\end{lema}
+
+\begin{lema}
+	$f_* \in \mathcal{C}(\mathcal{M},\mathcal{M})$. 
+\end{lema}
+
+\begin{lema}\label{lema3_krylov}
+	$\mu \in \mathcal{M}_f$ si y sólo si
+	
+	\begin{equation}
+		\int \varphi \circ f d\mu = \int \varphi d\mu
+	\end{equation}
+\end{lema}
+
+\begin{teorema}[Teorema de Krylov-Bugoliubov]
+	$\mathcal{M}_f$ es no vacío, convexo y compacto.
+\end{teorema}
+
+\begin{proof}
+	Recordar que si $M$ es compacto entonces $\mathcal{M}$ es compacto en la topología débil *.
+	
+	Sea $\mu_0 \in \mathcal{M}$, para $n \geq 1$ definimos
+	
+	\begin{align}
+		\mu_n :=& \frac{1}{n} \sum_{i=0}^{n-1} f_*^i \mu_0
+	\end{align}
+	
+		Sea $\mu_{n_j} \rightarrow \mu$ algún punto límite. Afirmamos que $\mu \in \mathcal{M}_f$, esto quiere decir, $f_*\mu = \mu$.
+	
+	Por continuidad de $f_*$ se tiene que $f_*\mu_{n_j} \rightarrow f_*\mu$.
+	
+	Es suficiente demostrar
+	
+	\begin{equation}
+	f_*\mu_{n_j} \rightarrow \mu
+	\end{equation}
+	
+	Veamos
+	
+	\begin{align}
+	f_*\mu_{n_j} =& f_* \left( \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu_0 \right)\\
+	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f_*^{i+1} \mu_0\\
+	=& \frac{1}{n_j} \left( \sum_{i=0}^{n_j-1} f^i_* \mu_0 - \mu_0 + f^{n_j}_* \mu_0 \right)\\
+	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu_0 - \frac{\mu_0}{n_j} + \frac{f^{n_j}_* \mu_0}{n_j}\\
+	=& \mu_{n_j} - \frac{\mu_0}{n_j} + \frac{f^{n_j}_* \mu_0}{n_j}
+	\end{align}
+	
+	Cuando $n_j \rightarrow \infty$ se ve que $f_* \mu_{n_j} \rightarrow \mu$. Por lo tanto $f_*\mu=\mu$. Por lo tanto existe $\mu \in \mathcal{M}_f$ con lo que $\mathcal{M}_f \neq \emptyset$.
+	
+	Ahora vamos a probar que $\mathcal{M}_f$ es convexo. Sea $\mu_1,\mu_2 \in \mathcal{M}_f$, hay que demostrar que
+	
+	\begin{equation}
+	f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2, \quad t \in [0,1]
+	\end{equation}
+	
+	Veamos. Sea $A \in \Sigma$ cualquiera, luego 
+	
+	\begin{align}
+	f_*(t\mu_1 + (1-t)\mu_2)(A) =& (t\mu_1 + (1-t)\mu_2)(f^{-1}(A))\\
+	=& t\mu_1(f^{-1}(A)) + (1-t)\mu_2(f^{-1}(A))\\
+	=& t\mu_1(A) + (1-t)\mu_2(A)\\
+	=& (t\mu_1 + (1-t)\mu_2)(A)
+	\end{align}
+	
+	Luego $f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2$ con lo que $t\mu_1 + (1-t)\mu_2 \in \mathcal{M}_f$.
+	
+	Finalmente, probaremos que $\mathcal{M}_f$ es compacto. Como sabemos que $\mathcal{M}$ es compacto porque $M$ es compacto entonces sólo hay que probar que $\mathcal{M}_f$ es cerrado.
+	
+	Sea $(\mu_n) \subset \mathcal{M}_f$ una sucesión tal que $\mu_n \rightarrow \mu$. Hay que demostrar que $\mu \in \mathcal{M}_f$.
+	
+	Por definición de convergencia en la topología débil * se tiene que, en particular, para $\varphi \circ f \in \mathcal{C}(M,\mathbb{R})$ con $\varphi \in \mathcal{C}(M,\mathbb{R})$ lo siquiente
+	
+	\begin{align}
+	\int \varphi \circ f d\mu &= \lim_{n \rightarrow \infty} \int \varphi \circ f d\mu_n\\
+	=& \lim_{n \rightarrow \infty} \int \varphi df_*\mu_n\\
+	=& \lim_{n \rightarrow \infty} \int \varphi d\mu_n\\
+	=& \int \varphi d\mu
+	\end{align}
+	
+	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f$.
+\end{proof}
+
+
+
+\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
+	Sea $X$ un espacio métrico, $f: X \rightarrow \mathbb{R}$ funciones medible y $\mu$ una probabilidad $f$-invariante y ergódica entonces
+	
+	\begin{equation}
+		\mu \left\lbrace x \in X: \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i(x) = \int \varphi d\mu, \quad \forall \varphi \in \mathcal{C}(X, \mathbb{R}) \right\rbrace = 1
+	\end{equation}
+\end{teorema}

@@ -1,0 +1,166 @@
+\section{Propiedades de la rotación irracional del círculo}
+
+\begin{lema}
+	Sea $X$ un espacio métrico compacto, $f \in \mathcal{C}(X,\mathbb{R})$, $\Phi$ un subconjunto denso de $\mathcal{C}(X, \mathbb{R})$ donde para cualquier $\varphi \in \Phi$ existe una constante $\overline{\varphi}$ (que depende de $\varphi$) tal que
+	
+	\begin{equation}\label{birkhoff_eq}
+		\lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i = \overline{\varphi}
+	\end{equation}
+	
+	entonces si \eqref{birkhoff_eq} se cumple para cualquier función continua.
+\end{lema}
+
+\begin{proof}
+	Sea $\varphi \in \Phi$. Luego existe $\overline{\varphi}$ (que depende de $\varphi$) tal que
+	
+	\begin{equation}
+		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i \rightarrow \overline{\varphi}
+	\end{equation}
+	
+	uniformemente.
+	
+	Ahora sea $\psi \in \mathcal{C}(X,\mathbb{R})$ cualquiera. Luego, para cualquier $\epsilon>0$ existe $\varphi \in \Phi$ tal que
+	
+	\begin{equation}
+		\left\| \psi - \varphi \right\| < \epsilon
+	\end{equation}
+	
+	Luego se tiene
+	
+	\begin{align}
+		\left\| \frac{1}{n} \sum_{i=0}^{n-1} \psi \circ f^i - \overline{\varphi} \right\| =& \left\| \frac{1}{n} \sum_{i=0}^{n-1} \psi \circ f^i - \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i + \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i - \overline{\varphi} \right\|\\		
+		\leq & \left\| \frac{1}{n} \sum_{i=0}^{n-1} \psi \circ f^i - \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i \right\| + \left\| \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i - \overline{\varphi} \right\|\\
+		\leq & \frac{1}{n} \sum_{i=0}^{n-1} \| \psi - \varphi \| \| f \|^i + \left\| \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i - \overline{\varphi} \right\|
+	\end{align}
+	
+	Como $f \in \mathcal{C}(X,\mathbb{R})$ y $X$ es un espacio métrico compacto entonces $\|f\|=M \in \mathbb{R}$. Luego
+	
+	\begin{align}
+		\left\| \frac{1}{n} \sum_{i=0}^{n-1} \psi \circ f^i - \overline{\varphi} \right\| < & \frac{\epsilon}{n} \frac{M^n-1}{M-1} + \epsilon
+	\end{align}
+	
+	Por lo tanto, \eqref{birkhoff_eq} cumple para $\psi \in \mathcal{C}(X,\mathbb{R})$ cualquiera.
+\end{proof}
+
+\begin{lema}
+	Sean X un espacio métrico compacto y $f \in \mathcal{C}(X,\mathbb{R})$. Luego, para cualquier $\varphi \in \mathcal{C}(X,\mathbb{R})$ existe $\overline{\varphi}$ (de depende de $\varphi$) tal que se cumple \eqref{birkhoff_eq} si y sólo existe una única medida ergódica $f$-invariante
+\end{lema}
+
+\begin{proof}
+	Sea $\varphi \in \mathcal{C}(X, \mathbb{R})$. Por el Teorema Ergódico de Birkhoff \ref{birkhoff_thm} se tiene
+	
+	\begin{equation}
+		\lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i(x) = \int \varphi d\mu
+	\end{equation}
+	
+	para casi todo punto $x \in X$ con respecto a $\mu$. Así $\overline{\varphi}=\int \varphi d\mu$.
+	
+	Ahora sea $\tilde{\mu}$ otra probabilidad ergódica $f$-invariante que cumple
+	
+	\begin{equation}
+		\lim_{n \rightarrow \infty} \sum_{i=0}^{n-1} \varphi \circ f^i(x)=\int \varphi d\tilde{\mu}
+	\end{equation}
+	
+	para casi todo punto $x \in X$ con respecto a $\tilde{\mu}$. Por unicidad del límite en la topología débil *, se tiene
+	
+	\begin{equation}
+		\int \varphi d\mu = \int \varphi d\tilde{\mu}
+	\end{equation}
+	
+	que cumple para cualquier $\varphi \in \mathcal{C}(X,\mathbb{R})$. Luego se concluye que $\mu=\tilde{\mu}$.
+	
+	Ahora supongamos que $\mu$ es la única probabilidad ergódica $f$-invariante. Sea $\overline{\varphi}=\int \varphi d\mu$, hay que demostrar que \eqref{birkhoff_eq} se cumple.
+	
+	Supongamos que \eqref{birkhoff_eq} no se cumple, entonces existe $\varphi \in \mathcal{C}(X,\mathbb{R})$, existe $\epsilon>0$, existe una sucesión $(x_k) \subset X \setminus A$ (donde $A$ es un conjunto de medida 0) y existe una sucesión $(n_k) \subset \mathbb{N}$ tal que cuando $n_k $ es suficientemente grande se tiene
+	
+	\begin{equation}
+		\left| \frac{1}{n_k} \sum_{i=0}^{n_k-1} \varphi \circ f^i(x_k) - \overline{\varphi} \right| \geq \epsilon \label{negacion_de_eq_birkhoff}
+	\end{equation}
+	
+	Definamos la sucesión de medidas
+	
+	\begin{align}
+		\nu_k := & \frac{1}{n_k} \sum_{i=0}^{n_k-1} f_*^i \delta_{x_k}\\
+		=& \frac{1}{n_k} \sum_{i=0}^{n_k-1} \delta_{f^i(x_k)}
+	\end{align}
+	
+	con $k \in \mathbb{N}$. Veamos que
+	
+	\begin{align}
+		\int \varphi d\nu_k := & \int \varphi d\left( \frac{1}{n_k} \sum_{i=0}^{n_k-1} \delta_{f^i(x_k)} \right)\\
+		=& \frac{1}{n_k} \sum_{i=0}^{n_k-1} \int \varphi d\delta_{f^i(x_k)}\\
+		=& \frac{1}{n_k} \sum_{i=0}^{n_k-1} \varphi \circ f^i(x_k) \label{int_varphi_dnu_k}
+	\end{align}
+	
+	Reemplazando \eqref{int_varphi_dnu_k} en \eqref{negacion_de_eq_birkhoff} tenemos que para cualquier $k \in \mathbb{N}$ se cumple
+	
+	\begin{equation}
+		\left| \int \varphi d\nu_k - \overline{\varphi} \right| \geq \epsilon
+	\end{equation}
+	
+	Como $\mathcal{M}$ es compacto, existe una subsucesión $(\nu_{k_j})$ tal que $\nu_{k_j} \rightarrow \nu$ cuando $j \rightarrow \infty$.
+	
+	Entonces, restringiéndonos a la subsucesión $(\nu_{k_j})$ y tomando límite tenemos
+	
+	\begin{equation}
+		\left| \int \varphi d\nu - \overline{\varphi} \right| = \left| \int \varphi d\nu - \int \varphi d\mu \right| \geq \epsilon
+	\end{equation}
+	
+	Como se supuso que $\varepsilon_f$ es un conjunto unitario entonces $\mathcal{M}_f$ también es un conjunto unitario. Por la prueba del teorema de Krylov-Boguliubov se ve que $\nu \in \mathcal{M}_f$. Luego $\nu \in \varepsilon_f$. 
+	
+	Por lo tanto, se tiene que $\nu \neq \mu$  y que $\nu \in \varepsilon_f$. Esto contradice la unicidad de la medida ergódica y $f$-invariante.
+\end{proof}
+
+\begin{teorema}
+  Sea $ f: S^1 \rightarrow S^1 $ la rotación irracional del círculo de factor $ \alpha $ ($ f(x) = x+\alpha \mod 1 $). Entonces la medida de Lebesgue es la única medida ergódica $f$-invariante.
+\end{teorema}
+
+\begin{proof}
+	Es suficiente probar que existe un conjunto denso $\Phi$ de funciones continuas $\varphi: S^1 \rightarrow \mathbb{C}$ tal que
+	
+	\begin{equation}
+		\lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i(x) = \overline{\varphi}
+	\end{equation}
+	
+	Definamos para $m \geq 1$
+	
+	\begin{equation}
+		\varphi_m(x) = e^{2\pi imx}
+	\end{equation}
+	
+	El conjunto $\Phi$ de todas las combinaciones lineales de $\varphi_m$ es denso en $\mathcal{C}(S^1,\mathbb{C})$.
+	
+	Con esto es suficiente probar la convergencia uniforme para $\varphi_m$
+	
+	\begin{align}
+		\varphi_m \circ f(x) &= e^{2\pi imf(x)}\\
+		&= e^{2\pi imx} e^{2\pi im\alpha}\\
+		&= \varphi_m(x) e^{2\pi im\alpha}
+	\end{align}
+	
+	Usando el hecho que $|\varphi_m(x)|=1$ y que
+	
+	\begin{equation}
+		\left| \sum_{j=0}^{n-1} x^j \right| = \frac{|1-x^n|}{|1-x|}
+	\end{equation}
+	
+	tenemos
+	
+	\begin{multline}
+		\left| \frac{1}{n} \sum_{j=0}^{n-1} \varphi_m \circ f^j(x) \right| = \left| \frac{1}{n} \sum_{j=0}^{n-1} e^{2\pi imj\alpha} \right| = \frac{1}{n} \frac{|1-e^{2\pi im\alpha n}|}{|1-e^{2\pi im\alpha}|} \leq \frac{1}{n} \frac{2}{|1-e^{2\pi im\alpha}|}\\
+		\rightrightarrows 0
+	\end{multline}
+	
+	cuando $n \rightarrow \infty$. $|1-e^{2\pi im\alpha}| \neq 0$ porque $\alpha$ es irracional.
+	
+	Luego $f$ tiene una única medida de probabilidad invariante y ergódica. Esta medida es la medida de Lebesgue.
+\end{proof}
+
+\begin{teorema}
+  La órbita de cualquier $ x \in S^1 $ está uniformemente distribuída con respecto a la medida de Lebesgue. Esto quiere decir,
+  \begin{equation}
+    \lim_{n \rightarrow \infty} \sum_{i=0}^{n-1} f^i(x) = m([0,1])=1, \forall x \in S^1
+  \end{equation}
+
+\end{teorema}
+
