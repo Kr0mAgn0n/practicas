@@ -1,6 +1,6 @@
 \section{Propiedades de la rotación irracional del círculo}
 
-\begin{lema}
+\begin{lema}\label{lema_varphi_m}
 	Sea $X$ un espacio métrico compacto, $f \in \mathcal{C}(X,\mathbb{R})$, $\Phi$ un subconjunto denso de $\mathcal{C}(X, \mathbb{R})$ donde para cualquier $\varphi \in \Phi$ existe una constante $\overline{\varphi}$ (que depende de $\varphi$) tal que
 	
 	\begin{equation}\label{birkhoff_eq}
@@ -42,7 +42,7 @@
 	Por lo tanto, \eqref{birkhoff_eq} cumple para $\psi \in \mathcal{C}(X,\mathbb{R})$ cualquiera.
 \end{proof}
 
-\begin{lema}
+\begin{lema}\label{lema_varphi_continua}
 	Sean X un espacio métrico compacto y $f \in \mathcal{C}(X,\mathbb{R})$. Luego, para cualquier $\varphi \in \mathcal{C}(X,\mathbb{R})$ existe $\overline{\varphi}$ (de depende de $\varphi$) tal que se cumple \eqref{birkhoff_eq} si y sólo existe una única medida ergódica $f$-invariante
 \end{lema}
 
@@ -111,6 +111,8 @@
 	Por lo tanto, se tiene que $\nu \neq \mu$  y que $\nu \in \varepsilon_f$. Esto contradice la unicidad de la medida ergódica y $f$-invariante.
 \end{proof}
 
+
+
 \begin{teorema}
   Sea $ f: S^1 \rightarrow S^1 $ la rotación irracional del círculo de factor $ \alpha $ ($ f(x) = x+\alpha \mod 1 $). Entonces la medida de Lebesgue es la única medida ergódica $f$-invariante.
 \end{teorema}
@@ -153,7 +155,7 @@
 	
 	cuando $n \rightarrow \infty$. $|1-e^{2\pi im\alpha}| \neq 0$ porque $\alpha$ es irracional.
 	
-	Luego $f$ tiene una única medida de probabilidad invariante y ergódica. Esta medida es la medida de Lebesgue.
+	Luego por \ref{lema_varphi_m} y \ref{lema_varphi_continua}, $f$ tiene una única medida de probabilidad invariante y ergódica. Esta medida es la medida de Lebesgue.
 \end{proof}
 
 \begin{teorema}

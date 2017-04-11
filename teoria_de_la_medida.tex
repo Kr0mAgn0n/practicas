@@ -3,3 +3,61 @@
 \begin{teorema}
 	Sea $M$ un espacio métrico compacto. $\mathcal{C}(M,\mathbb{C})$ es denso en $L^2$.
 \end{teorema}
+
+\begin{teorema}
+	El subespacio generado por $\{e^{2\pi inx}\}_{n \geq 1}$ es un conjunto denso en $L^2([0,1),\mathbb{C})$.
+\end{teorema}
+
+\begin{proof}
+	Vemos que
+	
+	\begin{align}
+		\langle e^{2\pi inx},e^{2\pi imx} \rangle &= \int_{0}^{1} e^{2\pi inx} e^{-2\pi imx} dx\\
+		&= \int_{0}^{1} e^{2\pi i(n-m)x} dx
+	\end{align}
+	
+	De allí tenemos que
+	
+	\begin{equation}
+		\langle e^{2\pi inx},e^{2\pi imx} \rangle = \begin{cases}
+			1, \quad m=n\\			
+			0,\quad m \neq n
+		\end{cases}
+	\end{equation}
+	
+	Para demostrar que el subespacio generado por $\{e^{2\pi inx}\}_{n \geq 1}$ es denso hay que demostrar que
+	
+	\begin{equation}
+		f(x) = \sum_{k=0}^{\infty} \langle f,e^{2\pi ikx} \rangle e^{2\pi ikx}, \quad \forall x \in [0,1)
+	\end{equation}
+	
+	para cualquier $f \in L^2([0,1),\mathbb{C})$. Denotemos a $e^{2\pi ikx}$ como $e_k$.
+	
+	\begin{equation}
+		\left\| f - \sum_{k=0}^{n} \langle f,e_k \rangle e_k \right\|^2 = \left\langle f - \sum_{k=0}^{n} \langle f,e_k \rangle e_k, f - \sum_{k=0}^{n} \langle f,e_k \rangle e_k \right\rangle
+	\end{equation}
+	
+	Resolviendo la ecuación con las propiedades del producto interno tenemos
+	
+	\begin{equation}
+		\left\| f - \sum_{k=0}^{n} \langle f,e_k \rangle e_k \right\|^2 = \|f\|^2 - \sum_{k=0}^{n} |\langle f,e_k \rangle|^2
+	\end{equation}
+	
+	Como esta igualdad es no negativa, vemos que
+	
+	\begin{equation}
+		\|f\|^2 \geq \sum_{k=0}^{n} |\langle f,e_k \rangle|^2
+	\end{equation}
+	
+	Al final tenemos que la sucesión $\sum_{k=0}^{n} |\langle f,e_k \rangle|^2$ es monótona creciente y acotada por lo tanto es convergente y converge a su supremo. Sea $L$ la convergencia. Se ve que $\|f\|^2 \geq L$. Supongamos que
+	
+	\begin{equation}
+		\|f\|^2 > L
+	\end{equation}
+	
+	Entonces por definición de supremo, para $\epsilon=\|f\|^2-L$ existe $n_0 \in \mathbb{N}$ tal que
+	
+	\begin{equation}
+		L \geq \sum_{k=0}^{n_0} |\langle f,e_k \rangle|^2 > L - (\|f\|^2-L)
+	\end{equation}
+\end{proof}
