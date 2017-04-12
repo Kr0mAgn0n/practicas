@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 
-\usepackage{ucs}
+%\usepackage{ucs}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{fontenc}
@@ -9,6 +9,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{parskip}
+\usepackage{biblatex}
+\usepackage{hyperref}
 
 \newtheorem{teorema}{Teorema}[section]
 \newtheorem{lema}{Lema}[section]
@@ -18,10 +20,16 @@
 
 \date{27.03.2017}
 
+\bibliography{referencias}
+
+% Esto es para arreglar el error del hyperref con las referencias en las ecuaciónes en el entorno align
+\AtBeginDocument{\let\textlabel\label}
+
 \begin{document}
 
 	\input{teoria_de_la_medida}
-	\input{./introduccion_a_la_teoria_ergodica.tex} 
-	\input{./rotacion_irracional_del_circulo.tex}
- 
+	\input{introduccion_a_la_teoria_ergodica} 
+	\input{rotacion_irracional_del_circulo}
+
+\printbibliography
 \end{document}

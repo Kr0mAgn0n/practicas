@@ -4,6 +4,20 @@
 	Sea $M$ un espacio métrico compacto. $\mathcal{C}(M,\mathbb{C})$ es denso en $L^2$.
 \end{teorema}
 
+\cite{upennpdfL2}
+
+\begin{definicion}
+	Una familia de funciones $\{f_n\}$ \textit{genera} $L^2(S^1,\mathbb{C})$ si el conjunto de sus combinaciones lineales es denso en $L^2(S^1,\mathbb{C})$.
+\end{definicion}
+
+\begin{definicion}
+	Una \textit{base ortonormal} de $L^2(S^1,\mathbb{C})$ es una familia ortonormal que genera todo el espacio.
+\end{definicion}
+
+\begin{lema}
+	La familia $\{e_n\}_{n \geq 1}$ es una base ortonormal de $L^2(S^1,\mathbb{C})$ si y solo si la única función $f$ que es ortogonal a cada miembro de la familia es $f \equiv 0$.
+\end{lema}
+
 \begin{teorema}
 	El subespacio generado por $\{e^{2\pi inx}\}_{n \geq 1}$ es un conjunto denso en $L^2([0,1),\mathbb{C})$.
 \end{teorema}
@@ -49,15 +63,5 @@
 		\|f\|^2 \geq \sum_{k=0}^{n} |\langle f,e_k \rangle|^2
 	\end{equation}
 	
-	Al final tenemos que la sucesión $\sum_{k=0}^{n} |\langle f,e_k \rangle|^2$ es monótona creciente y acotada por lo tanto es convergente y converge a su supremo. Sea $L$ la convergencia. Se ve que $\|f\|^2 \geq L$. Supongamos que
-	
-	\begin{equation}
-		\|f\|^2 > L
-	\end{equation}
-	
-	Entonces por definición de supremo, para $\epsilon=\|f\|^2-L$ existe $n_0 \in \mathbb{N}$ tal que
-	
-	\begin{equation}
-		L \geq \sum_{k=0}^{n_0} |\langle f,e_k \rangle|^2 > L - (\|f\|^2-L)
-	\end{equation}
+	Al final tenemos que la sucesión $\sum_{k=0}^{n} |\langle f,e_k \rangle|^2$ es monótona creciente y acotada por lo tanto es convergente y converge a su supremo. 
 \end{proof}
