@@ -1,0 +1,218 @@
+\section{Anexo}
+
+Esta sección adicional fue agregada para justificar el uso de la propiedad que se utilizó en la demostración del teorema \ref{main1}.
+
+En esta sección se usó como referencia dos recursos de internet, \cite{upennpdfL2} y \cite{thangavelu}.
+
+\begin{definicion}
+	Una familia de funciones $\{f_n\}$ \textit{genera} $\mathcal{C}(S^1)$ si el conjunto de sus combinaciones lineales es denso en $\mathcal{C}(S^1)$.
+\end{definicion}
+
+\begin{definicion}
+	Una \textit{base ortonormal} de $\mathcal{C}(S^1)$ es una familia ortonormal que genera todo el espacio.
+\end{definicion}
+
+Las funciones en $\mathcal{C}(S^1)$ se pueden identificar, sin pérdida de generalidad, como funciones de período 1. La explicación es la siguiente: $S^1$, la circunferencia de radio 1, se puede parametrizar con la función $g(t)=(\cos (2\pi t), \sen (2\pi t))$ con $t \in \mathbb{R}$. A simple vista se ve que $g$ tiene período 1. Es por eso que, a partir de ahora, no hay problema es identificar las funciones en $S^1$ como funciones de período 1.
+
+De aqui en adelante en esta sección denotaremos a los elementos de la familia $\{e^{2\pi ikx}\}_{k \in \mathbb{Z}}$ con $e_k$ tal que
+
+\begin{equation}
+	e_k(x) = e^{2\pi ikx}
+\end{equation}
+
+\begin{definicion}
+	Los polinomios trigonométricos son funciones de la forma
+	
+	\begin{equation}
+		p_n(x) = \sum_{k=-n}^{n} a_k e_k
+	\end{equation}
+	
+	donde los $a_k \in \mathbb{C}$.
+\end{definicion}
+
+\begin{definicion}
+	Sea $f \in \mathcal{C}(S^1)$. Se define la $n$-ésima suma parcial de Fourier de $f$ como
+	
+	\begin{equation}
+		S_n f = \sum_{k=-n}^{n} \langle f,e_k \rangle e_k
+	\end{equation}
+\end{definicion}
+
+\begin{definicion}
+	Sea $f \in \mathcal{C}(S^1)$. Se definen las funciones $\sigma_n: \mathcal{C}(S^1) \rightarrow \mathcal{C}(S^1)$ como
+	
+	\begin{equation}
+		\sigma_n f = \frac{1}{n+1} \sum_{k=0}^{n} S_k f
+	\end{equation}
+	
+	A estas funciones se les llama \textit{Medias de Fejér} de la función $f$.
+\end{definicion}
+
+\begin{definicion}
+	Sean $f,g \in \mathcal{C}(S^1)$. Se define la convolución de dos funciones como
+	
+	\begin{equation}
+		(f*g)(x) = \int_{0}^{1} f(x-t)g(t)dt = \int_{0}^{1} f(x)g(x-t)dt
+	\end{equation}
+\end{definicion}
+
+Notar que la segunda igualdad viene del hecho que las funciones $f,g \in \mathcal{C}(S^1)$ tienen período 1 ya que en ese tipo de funciones se cumple
+
+\begin{equation}
+	\int_{0}^{1} f(t)dt = \int_{a}^{a+1} f(t)dt
+\end{equation}
+
+Con la convolución definida podemos observar lo siguiente
+
+\begin{align}
+	(f*e_k)(t) &= \int_{0}^{1} f(s)e_k(t-s)ds\\
+	&= \left( \int_{0}^{1} f(s) e_k(-s)ds \right) e_k(t)\\
+	&= \langle f,e_k \rangle e_k(t)
+\end{align}
+
+Este resultado se va a usar para redefinir la suma parcial de Fourier $S_k f$ de una función $f \in \mathcal{C}(S^1)$, pero esta definición depende de la definición de una conjunto de funciones llamadas \textit{Kernels de Dirichlet}.
+
+\begin{definicion}
+	Las funciones $D_k: S^1 \rightarrow S^1$ ($k \in \mathbb{N} \cup \{0\}$) definidas por
+	
+	\begin{equation}
+		D_k(x) = \sum_{j=-k}^{k} e_j(x)
+	\end{equation}
+	
+	son llamadas \textit{Kernels de Dirichlet}. 
+\end{definicion}
+
+Además se puede demostrar que estos kernels están definidos explícitamente por
+
+\begin{equation}\label{kerneldirichlet}
+D_k(x) = \frac{\sen ((2k+1)\pi x)}{\sen (\pi x)}
+\end{equation}
+
+En efecto, vemos que
+
+\begin{align}
+	D_k(x) &= \sum_{j=-k}^{k} e^{2\pi \i jx}\\
+	&= \sum_{j=0}^{k} e^{2\pi \i jx} + \sum_{j=1}^{k} e^{-2\pi \i jx}\\
+	&= \frac{e^{2\pi \i (k+1)x}-1}{e^{2\pi \i x} - 1} + \frac{e^{-2\pi \i (k+1)x}-1}{e^{-2\pi \i x} - 1} - 1
+\end{align}
+
+Desarrollando la igualdad obtenida al final se llega a \eqref{kerneldirichlet}.
+
+
+
+Con esta definición dada se puede redefinir a la sumas parciales de Fourier de una función $f$ de la siguiente manera
+
+\begin{equation}
+	S_k f = f * D_k
+\end{equation}
+
+Veamos.
+
+\begin{align}
+	S_k f (t) &= \sum_{j=-k}^{k} \langle f,e_J \rangle e_j\\
+	&= \sum_{j=-k}^{k} \left( \int_{0}^{1} f(s)e_j(-s)ds \right) e_j(t)\\
+	&= \sum_{j=-k}^{k} \left( \int_{0}^{1} f(s) e_j(t-s)ds \right)\\
+	&= \sum_{j=-k}^{k} \left( \int_{0}^{1} f(t-s) e_j(s) ds \right)\\
+	&= \int_{0}^{1} f(t-s) \left( \sum_{j=-k}^{k} e_j (s) \right) ds\\
+	&= (f * D_k)(t)
+\end{align}
+
+De la misma forma se puede redefinir las Medias de Fejer en función de un conjunto de funciones que llamaremos  Kernels de Fejer.
+
+\begin{definicion}
+	Sea $f \in \mathcal{C}(S^1)$. Se definer las funciones $K_n: \mathcal{C}(S^1) \rightarrow \mathcal{C}(S^1)$ como
+	
+	\begin{equation}
+		K_n(t) = \frac{1}{n+1} \sum_{k=0}^{n} D_k(t)
+	\end{equation} 
+	
+	donde los $D_k$ son los Kernels de Dirichlet. A este tipo de funciones se les llama \textit{Kernels de Fejér}.
+\end{definicion}
+
+Se demuestra que estos Kernels de Fejér tienen una forma explícita
+
+\begin{equation}
+	K_n(t) = \frac{1}{n+1} \frac{\sen^2 \left( \frac{(n+1)\pi t}{2} \right)}{\sen^2 \left( \frac{\pi t}{2} \right)}
+\end{equation}
+
+pero se va omitir los detalles.
+
+Con esta definición podemos redifinir las Medias de Fejér de la siguiente manera
+
+\begin{align}
+	\sigma_n f(t) &= \frac{1}{n+1} \sum_{k=0}^{n} S_k f(t)\\
+	&= \frac{1}{n+1} \sum_{k=0}^{n} (f * D_k)(t)\\
+	&= \frac{1}{n+1} \sum_{k=0}^{n} \int_{0}^{1} f(t-s) D_k(s) ds\\
+	&= \int_{0}^{1} f(t-s) \left( \frac{1}{n+1} \sum_{k=0}^{n} D_k(s) \right) ds\\
+	&= \int_{0}^{1} f(t-s) K_n(s) ds\\
+	&= (f * K_n)(t)
+\end{align}
+
+Antes de proceder con la demostración del lema siguiente hay que hacer dos observaciones. La primera es que
+
+\begin{align}
+	\int_{0}^{1} D_k(t) dt &= \int_{0}^{1} \sum_{j=-k}^{k}  e^{2\pi \i jt} dt\\
+	&= \sum_{j=-k}^{k} \int_{0}^{1} (\cos(2\pi jt) + \i \sen(2\pi jt) dt\\
+	&= 0
+\end{align}
+
+excepto cuando $k=0$. En ese caso, la integral vale $1$. Y la segunda es
+
+\begin{align}
+	\int_{0}^{1} K_n(t) dt &= \int_{0}^{1} \sum_{k=0}^{n} D_k(t) dt\\
+	&= 1+ \int_{0}^{1} \sum_{k=1}^{n} D_k(t) dt\\
+	&= 0
+\end{align}
+
+Ahora procedamos a probar el lema.
+
+\begin{lema}\label{sigmanf}
+	Sea $f \in \mathcal{C}(S^1)$. $\sigma_n f$ converge a $f \in \mathcal{C}(S^1)$.
+\end{lema}
+
+\begin{proof}
+	Sea $\epsilon >0$ cualquiera. Entonces
+	
+	\begin{multline}
+		|\sigma_n f(t) - f(t)| = \left| (f * K_n)(t) - f(t)  \right| = \left| \int_{0}^{1} f(t-s) K_n(s) ds - f(t) \right|
+	\end{multline}
+	
+	Como $\int_{0}^{1} K_n(t)dt = 1$ entonces
+	
+	\begin{align}
+		|\sigma_n f(t) - f(t)| &= \left| \int_{0}^{1} f(t-s) K_n(s)ds - \int_{0}^{1} f(t) K_n(s)ds \right|\\
+		&= \left| \int_{0}^{1} (f(t-s)-f(t)) K_n(s)ds \right|\\
+		&\leq \int_{0}^{1} | f(t-s)-f(t) | |K_n(s)| ds\\
+		&\leq 2|f| \int_{0}^{1} |K_n(s)|ds
+	\end{align}
+	
+	La existencia de $|f|$ se justifica en el hecho de que $S^1$ es un conjunto compacto, y como $f$ es continua, entonces $|f|$ toma un valor finito.
+	
+	Por la definición de $K_n(t)$ se puede ver que $K_n(t) \rightarrow 0$ uniformemente cuando $n \rightarrow \infty$. Entonces existe $N \in \mathbb{N}$ tal que $\forall n \geq N$ se tiene que
+	
+	\begin{equation}
+		|K_n(t)| < \frac{\epsilon}{2|f|}
+	\end{equation}
+	
+	Luego
+	
+	\begin{equation}
+		|\sigma_n f(t) - f(t)| < \epsilon
+	\end{equation}
+\end{proof}
+
+Probado el lema se continua con el siguiente resultado.
+
+\begin{teorema}
+	Los polinomios trigonométricos son densos en $C(S^1)$.
+\end{teorema}
+
+\begin{proof}
+	Por el lema \ref{sigmanf} se puede concluir que para cualquier $\epsilon > 0$ y para cualquier $f \in \mathcal{C}(S^1)$ existe $\sigma_n f$ (que es un polinomio trigonométrico) tal que
+	
+	\begin{equation}
+		|f - \sigma_n f| < \epsilon
+	\end{equation}
+	
+	Con esto se concluye que los polinomios trigonométricos son densos en $\mathcal{C}(S^1)$.
+\end{proof}

@@ -8,28 +8,36 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{parskip}
+%\usepackage{parskip}
 \usepackage{biblatex}
 \usepackage{hyperref}
 
 \newtheorem{teorema}{Teorema}[section]
+
 \newtheorem{lema}{Lema}[section]
 
 \theoremstyle{definition}
 \newtheorem{definicion}{Definición}[section]
-
-\date{27.03.2017}
 
 \bibliography{referencias}
 
 % Esto es para arreglar el error del hyperref con las referencias en las ecuaciónes en el entorno align
 \AtBeginDocument{\let\textlabel\label}
 
-\begin{document}
+% Esto es para definir el espacio entre párrafos
+\setlength{\parskip}{1em}
 
+\title{Análisis de la rotación irracional de $S^1$}
+\author{Mario Lamas}
+
+\begin{document}
+	
+	\maketitle
+	
 	\input{teoria_de_la_medida}
 	\input{introduccion_a_la_teoria_ergodica} 
 	\input{rotacion_irracional_del_circulo}
+	\input{anexo}
 
 \printbibliography
 \end{document}
