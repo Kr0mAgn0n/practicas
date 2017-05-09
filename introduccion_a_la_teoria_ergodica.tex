@@ -1,6 +1,34 @@
 \section{Introducción a la Teoría Ergódica}
 
 \begin{definicion}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$. Una medida $\mu$ se dice $f$-invariante si
+	
+	\begin{equation}
+		\mu(f^{-1}A) = \mu A
+	\end{equation}
+	
+	para cualquier $A \in \Sigma$.
+\end{definicion}
+
+\begin{definicion}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
+	
+	\begin{equation}
+		\Sigma_f = \{ A \in \Sigma: \mu(f^{-1}A) = \mu A \}
+	\end{equation}
+\end{definicion}
+
+Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
+
+\begin{definicion}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ donde $\mu$ es $f$-invariante. $\mu$ es ergódica si para cualquier $A \in \Sigma_f$ se tiene
+	
+	\begin{equation}
+		\mu A = 0 \vee \mu A = 1
+	\end{equation}
+\end{definicion}
+
+\begin{definicion}
 	$\mathcal{M}$ es el conjunto de todas las medidas de probabilidad, $\mathcal{M}_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y $\varepsilon_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y ergódicas.
 \end{definicion}
 
@@ -100,12 +128,23 @@
 	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f$.
 \end{proof}
 
-
-
-\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
-	Sea $X$ un espacio métrico, $f: X \rightarrow \mathbb{R}$ funciones medible y $\mu$ una probabilidad $f$-invariante y ergódica entonces
+\begin{lema}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Sea $\varphi \in L^1(X,\Sigma,\mu)$ cualquiera y $x \in X$, entonces
 	
 	\begin{equation}
-		\mu \left\lbrace x \in X: \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i(x) = \int \varphi d\mu, \quad \forall \varphi \in \mathcal{C}(X, \mathbb{R}) \right\rbrace = 1
+		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow E(f,\Sigma_f)
 	\end{equation}
+	
+	para $\mu$-c.t.p.
+	
+\end{lema}
+
+\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$, $\varphi \in L^1(X,\Sigma,\mu)$ y $x \in X$. Si $\mu$ es $f$-invariante y ergódica entonces
+	
+	\begin{equation}
+		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow \int \varphi d\mu
+	\end{equation}
+	
+	cuando $n \rightarrow \infty$ para $\mu$-c.t.p.
 \end{teorema}
