@@ -1,6 +1,43 @@
 \section{Teoría de la Medida}
 
-\begin{teorema}
-	Sea $M$ un espacio métrico compacto. $\mathcal{C}(M,\mathbb{C})$ es denso en $L^2$.
+\begin{definicion}
+	Sea $\mu$ una medida en $(X,\Sigma)$.Se dice que la medida $\nu$ es \textit{absolutamente continua} con respecto a $\mu$ si
+	
+	\begin{equation}
+		\forall A \in \Sigma, \mu A = 0 \Rightarrow \nu A = 0
+	\end{equation}
+	
+	La notación $\nu \ll \mu$ indica que $\nu$ es absolutamente continua con respecto a $\mu$.
+\end{definicion}
+
+\begin{teorema}[Radon-Nikodyn]\label{radon-nikodyn}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Sea $\nu$ una medida definida en $\Sigma$ con $\nu \ll \mu$. Entonces existe una función no negativa medible $f$ tal que
+	
+	\begin{equation}
+		\nu A = \int_A f d\mu, \forall A \in \Sigma
+	\end{equation}
+	
+	Además $f$ es única en el sentido de que si $g$ es una función que cumple la misma propiedad, entonces $f = g$ $\mu$-c.t.p.
 \end{teorema}
 
+\begin{definicion}
+	Sea $\Sigma' \subset \Sigma$ una sub-$\sigma$-álgebra, $f \in L^1(X,\Sigma,\mu)$ con $f \geq 0$ en $\mu$-c.t.p y $\nu$ una medida definida en $\Sigma'$ con
+	
+	\begin{equation}
+		\nu A = \int_A f d\mu, \forall A \in \Sigma'
+	\end{equation}
+	
+	Como $\nu \ll \mu|_{\Sigma'}$, por el teorema \ref*{radon-nikodyn}, se tiene que existe una función $\Sigma'$-medible no negativa en $\mu$-c.t.p. que se denotará $E(f|\Sigma')$ tal que
+	
+	\begin{equation}
+		\nu A = \int_A E(f|\Sigma') d\mu, \forall A \in \Sigma'
+	\end{equation}
+	
+	A la función $E(f|\Sigma')$ se le llama \textit{esperanza condicionada de $f$ con respecto a $\Sigma'$}. 
+\end{definicion}
+
+Hay que observar que $E(f|\Sigma')$ está definida para $f \geq 0$. Este concepto se puede extender para funciones $f \in L^1(X,\Sigma,\mu)$ en general. Definamos $E(f|\Sigma')$ para $f \in L^1(X,\Sigma,\mu)$ de la siguiente forma
+
+\begin{equation}
+	E(f|\Sigma') = E(f_+|\Sigma')- E(f_-,\Sigma')
+\end{equation}

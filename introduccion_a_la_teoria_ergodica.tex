@@ -29,6 +29,16 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{definicion}
 
 \begin{definicion}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$. Se define $E \subset \Sigma_f$ como
+	
+	\begin{equation}
+		E = \{ A \in \Sigma_f: \mu A = 0 \vee \mu A = 1 \}
+	\end{equation}
+\end{definicion}
+
+Se puede demostrar que $E$ es un $\sigma$-álgebra. $\emptyset \in E$ porque $\mu \emptyset = 0$. Sea $A \in E$ entonces $\mu A = 0 \vee \mu A = 1$. Como $\mu(X \setminus A) = 1 - \mu A$ entonces se tiene que $\mu(X \setminus A) = 0 \vee \mu(X \setminus A) = 1$. Con esto se tiene que $X \setminus A \in E$. Por último, sea $\{A_n\}_{n \geq 1} \subset E$. Si suponemos que $\mu A_i = 0$ y $\mu A_j = 1$ para algún $i$ y para algún $j$ entonces, como $A_i \cap A_j \in E$ entonces $\mu(A_i \cap A_j) = 0 \vee \mu(A_i \cap A_j) = 1$. Si suponemos que $0 < \mu(\cup_{n \geq 1} A_n) \leq \sum_{n \geq 1} \mu A_n$ entonces $\forall n \geq 1, 0 < \mu A_n$. Con esto se tiene que $\forall n \geq 1, \mu A_n = 1$. Luego se tiene $\mu(X \setminus \cup_{n \geq 1} A_n) \leq \mu(X \setminus \cap_{n \geq 1} A_n) = \mu(\cup_{n \geq 1} (X \setminus A_n)) \leq \sum_{n \geq 1} \mu(X \setminus A_n) = 0$. Por lo tanto, si suponemos que $0 < \mu(\cup_{n \geq 1} A_n)$  se llega a que $\mu(X \setminus \cup_{n \geq 1} A_n) = 0$ y con esto a $\mu(\cup_{n \geq 1} A_n) = 1$. Por lo tanto $E$ es un $\sigma$-álgebra.
+
+\begin{definicion}
 	$\mathcal{M}$ es el conjunto de todas las medidas de probabilidad, $\mathcal{M}_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y $\varepsilon_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y ergódicas.
 \end{definicion}
 
@@ -128,7 +138,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f$.
 \end{proof}
 
-\begin{lema}
+\begin{lema}\label{birkhoff-lema}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Sea $\varphi \in L^1(X,\Sigma,\mu)$ cualquiera y $x \in X$, entonces
 	
 	\begin{equation}
@@ -143,8 +153,18 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$, $\varphi \in L^1(X,\Sigma,\mu)$ y $x \in X$. Si $\mu$ es $f$-invariante y ergódica entonces
 	
 	\begin{equation}
-		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow \int \varphi d\mu
+		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow \int_X \varphi d\mu
 	\end{equation}
 	
 	cuando $n \rightarrow \infty$ para $\mu$-c.t.p.
 \end{teorema}
+
+\begin{proof}
+	Por el lema \ref{birkhoff-lema} se tiene que
+	
+	\begin{equation}
+		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow E(f|E)
+	\end{equation}
+	
+	Como $\int_A f d\mu = \int_A E(f|E) d\mu, \forall A \in E$ entonces $\int_X f d\mu = \int_X E(f|E) d\mu$
+\end{proof}
