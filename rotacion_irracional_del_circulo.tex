@@ -159,10 +159,15 @@
 \end{proof}
 
 \begin{teorema}
-  La órbita de cualquier $ x \in S^1 $ está uniformemente distribuída con respecto a la medida de Lebesgue. Esto quiere decir,
-  \begin{equation}
-    \lim_{n \rightarrow \infty} \sum_{i=0}^{n-1} f^i(x) = m([0,1])=1, \forall x \in S^1
-  \end{equation}
-
+  La órbita de cualquier $ x \in S^1 $ está uniformemente distribuída con respecto a la medida de Lebesgue.
 \end{teorema}
 
+\begin{proof}
+	Sea $a,b \in S^1$ cualesquiera tal que $[a,b] \subset S^1$. Usando el corolario del teorema de Birkhoff \ref{birkhoff_corolario} con $\varphi = \chi_{[a,b]}$ se tiene que
+	
+	\begin{equation}
+		\frac{1}{n} \sum_{i=0}^{n-1} \chi_{[a,b]} \circ f^i x \rightarrow \int \chi_{[a,b]} d\mu = b-a
+	\end{equation}
+	
+	para $\mu$-c.t.p.
+\end{proof}

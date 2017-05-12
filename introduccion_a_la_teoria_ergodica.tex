@@ -156,7 +156,36 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f$.
 \end{proof}
 
-\begin{lema}\label{birkhoff-lema}
+\begin{teorema}[Máxima desigualdad]
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
+	
+	\begin{gather}
+		\varphi_n = \sum_{i=0}^{n-1} \varphi \circ f^i\\
+		\varPhi_n x = \max \{f_j x : 0 \leq j \leq n\} \geq 0
+	\end{gather}
+	
+	Sea $A = \{x \in X: \varPhi x > 0 \}$ entonces
+
+	\begin{equation}
+		\int_A \varphi d\mu \geq 0
+	\end{equation}
+\end{teorema}
+
+\begin{corolario}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$ y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define
+	
+	\begin{equation}
+		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
+	\end{equation}
+	
+	entonces para cualquier $A \in \Sigma_f$ se tiene
+	
+	\begin{equation}
+		\int_{B_{\alpha} \cap A} g d\mu \geq \alpha \mu(B_{\alpha} \cap A)
+	\end{equation}
+\end{corolario}
+
+\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Sea $\varphi \in L^1(X,\Sigma,\mu)$ cualquiera y $x \in X$, entonces
 	
 	\begin{equation}
@@ -165,9 +194,9 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	
 	para $\mu$-c.t.p.
 	
-\end{lema}
+\end{teorema}
 
-\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
+\begin{corolario}\label{birkhoff_corolario}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$, $\varphi \in L^1(X,\Sigma,\mu)$ y $x \in X$. Si $\mu$ es $f$-invariante y ergódica entonces
 	
 	\begin{equation}
@@ -175,10 +204,10 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	\end{equation}
 	
 	cuando $n \rightarrow \infty$ para $\mu$-c.t.p.
-\end{teorema}
+\end{corolario}
 
 \begin{proof}
-	Por el lema \ref{birkhoff-lema} se tiene que
+	Por el teorema \ref{birkhoff_thm} se tiene que
 	
 	\begin{equation}
 		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow E(\varphi|N \cap \Sigma_f)
