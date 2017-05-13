@@ -1,7 +1,9 @@
 \section{Introducción a la Teoría Ergódica}
 
+En esta sección consideraremos a $X$ como un espacio métrico compacto y a $\Sigma$ como un $\sigma$-álgebra de $X$. 
+
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$. Una medida $\mu$ se dice $f$-invariante si
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f \in \mathcal{C}(X)$. La medida $\mu$ se dice $f$-invariante si
 	
 	\begin{equation}
 		\mu(f^{-1}A) = \mu A
@@ -11,7 +13,7 @@
 \end{definicion}
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f \in \mathcal{C}(X)$ con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
 	
 	\begin{equation}
 		\Sigma_f = \{ A \in \Sigma: \mu(f^{-1}A) = \mu A \}
@@ -21,47 +23,39 @@
 Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ donde $\mu$ es $f$-invariante. $\mu$ es ergódica si para cualquier $A \in \Sigma_f$ se tiene
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es ergódica si para cualquier $A \in \Sigma$ se tiene
 	
 	\begin{equation}
 		\mu A = 0 \vee \mu A = 1
 	\end{equation}
 \end{definicion}
 
-\begin{definicion}\label{trivial_sigma-algebra}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Se define $N \subset \Sigma$ como
+\begin{definicion}
+	Se define $\mathcal{M}(X,\Sigma)$ de la siguiente manera
 	
 	\begin{equation}
-		N = \{ A \in \Sigma: \mu A = 0 \vee \mu A = 1 \}
+		\mathcal{M}(X,\Sigma) = \{\mu: \Sigma \rightarrow \mathbb{R}: \mu \text{ es un medida de probabilidad} \}
 	\end{equation}
 \end{definicion}
 
-Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\mu \emptyset = 0$. Sea $A \in N$ entonces $\mu A = 0 \vee \mu A = 1$. Como $\mu(X \setminus A) = 1 - \mu A$ entonces se tiene que $\mu(X \setminus A) = 0 \vee \mu(X \setminus A) = 1$. Con esto se tiene que $X \setminus A \in N$. Por último, sea $\{A_n\}_{n \geq 1} \subset N$.  Si suponemos que $0 < \mu(\cup_{n \geq 1} A_n) \leq \sum_{n \geq 1} \mu A_n$ entonces $\forall n \geq 1, 0 < \mu A_n$. Con esto se tiene que $\forall n \geq 1, \mu A_n = 1$. Luego se tiene $\mu(X \setminus \cup_{n \geq 1} A_n) \leq \mu(X \setminus \cap_{n \geq 1} A_n) = \mu(\cup_{n \geq 1} (X \setminus A_n)) \leq \sum_{n \geq 1} \mu(X \setminus A_n) = 0$. Por lo tanto, si suponemos que $0 < \mu(\cup_{n \geq 1} A_n)$  se llega a que $\mu(X \setminus \cup_{n \geq 1} A_n) = 0$ y con esto a $\mu(\cup_{n \geq 1} A_n) = 1$. Por lo tanto $N$ es un $\sigma$-álgebra.
-
-\begin{propiedad}\label{esperanza_en_sigma-algebra_trivial}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f \in L^1(X,\Sigma,\mu)$ y $N'$ un sub-$\sigma$-álgebra de $N$. Entonces
-	
-	\begin{equation}
-		\int_A E(f|N') d\mu = E(f|N'), \forall A \in N
-	\end{equation}
-\end{propiedad}
-
-\begin{proof}
-	Supongamos que $\int_A E(f|N') d\mu > E(f|N'), \forall A \in N'$. Luego $\int_A E(f|N') d\mu - E(f|N') > 0$. Integrando tenemos
-	
-	\begin{equation}
-		\int_A \left( \int_A E(f|N')d\mu - E(f|N') \right) d\mu > 0
-	\end{equation}
-	
-	Como $A \in N'$ entonces $\mu A = 0 \vee \mu A = 1$. Pero si $\mu A = 0$ entonces $0>0$. Contradicción. Por otro lado, si $\mu A = 1$ también se obtendría $0>0$. Se llegaría a la misma contradicción si asumiéramos al inicio que $\int_A E(f|N') d\mu < E(f|N'), \forall A \in N'$. Por lo tanto, $\int_A E(f|N') d\mu = E(f|N')$.
-\end{proof}
-
 \begin{definicion}
-	$\mathcal{M}$ es el conjunto de todas las medidas de probabilidad, $\mathcal{M}_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y $\varepsilon_f$ es el conjunto de la medidas de probabilidad $f$-invariantes y ergódicas.
+	Sea $f \in \mathcal{C}(X)$. Se define $\mathcal{M}_f(X,\Sigma)$ de la siguiente manera
+	
+	\begin{equation}
+		\mathcal{M}_f(X,\Sigma) = \{ \mu \in \mathcal{M}(X,\Sigma): \mu(f^{-1} A) = \mu A, \forall A \in \Sigma \}
+	\end{equation}
 \end{definicion}
 
 \begin{definicion}
-	Sea $M$ un espacio métrico compacto, $f \in \mathcal{C}(M,M)$ y $f_*: \mathcal{M} \rightarrow \mathcal{M}$. Entonces para cualquier conjunto $A \subset M$ medible $f_*$ se define como
+	Sea $f \in \mathcal{C}(X)$. Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera
+	
+	\begin{equation}
+		\varepsilon_f(X,\Sigma) = \{ \mu \in \mathcal{M}_f(X,\Sigma): \mu A = 0 \vee \mu A = 1, \forall A \in \Sigma \}
+	\end{equation}
+\end{definicion}
+
+\begin{definicion}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f \in \mathcal{C}(X)$. Entonces para cualquier conjunto $A \subset \Sigma$, $f_*: \mathcal{M}(X,\Sigma) \rightarrow \mathcal{M}(X,\Sigma)$ se define como
 	
 	\begin{equation}
 		f_*\mu(A) = \mu(f^{-1}(A))
@@ -69,7 +63,7 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 \end{definicion}
 
 \begin{lema}\label{lema1_krylov-bugoliubov}
-	Sea $M$ un espacio métrico compacto, $\varphi \in L^1_\mu (M,\mathbb{R})$. Entonces
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $f,\varphi \in \mathcal{C}(X)$. Entonces
 	
 	\begin{equation}
 		\int \varphi d(f_*\mu)=\int \varphi \circ f d\mu
@@ -77,31 +71,35 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 \end{lema}
 
 \begin{lema}
-	$f_* \in \mathcal{C}(\mathcal{M},\mathcal{M})$. 
+	$f_* \in \mathcal{C}(\mathcal{M}(X,\Sigma))$. 
 \end{lema}
 
 \begin{lema}\label{lema3_krylov}
-	$\mu \in \mathcal{M}_f$ si y sólo si
+	Sean $f,\varphi \in \mathcal{C}(X)$. $\mu \in \mathcal{M}_f(X,\Sigma)$ si y sólo si
 	
 	\begin{equation}
 		\int \varphi \circ f d\mu = \int \varphi d\mu
 	\end{equation}
 \end{lema}
 
+\begin{lema}
+	$\mathcal{M}(X,\Sigma)$ es compacto. 
+\end{lema}
+
 \begin{teorema}[Teorema de Krylov-Bugoliubov]
-	$\mathcal{M}_f$ es no vacío, convexo y compacto.
+	Sea $f \in \mathcal{C}(X)$. Entonces $\mathcal{M}_f(X,\Sigma)$ es no vacío, convexo y compacto.
 \end{teorema}
 
 \begin{proof}
-	Recordar que si $M$ es compacto entonces $\mathcal{M}$ es compacto en la topología débil *.
+	Recordar que $\mathcal{M}(X,\Sigma)$ es compacto.
 	
-	Sea $\mu_0 \in \mathcal{M}$, para $n \geq 1$ definimos
+	Sea $\mu \in \mathcal{M}(X,\Sigma)$, para $n \geq 1$ definimos
 	
 	\begin{align}
-		\mu_n :=& \frac{1}{n} \sum_{i=0}^{n-1} f_*^i \mu_0
+		\mu_n :=& \frac{1}{n} \sum_{i=0}^{n-1} f_*^i \mu
 	\end{align}
 	
-		Sea $\mu_{n_j} \rightarrow \mu$ algún punto límite. Afirmamos que $\mu \in \mathcal{M}_f$, esto quiere decir, $f_*\mu = \mu$.
+		Sea $\mu_{n_j} \rightarrow \mu$ algún punto límite. Afirmamos que $\mu \in \mathcal{M}_f(X,\Sigma)$, esto quiere decir, $f_*\mu = \mu$.
 	
 	Por continuidad de $f_*$ se tiene que $f_*\mu_{n_j} \rightarrow f_*\mu$.
 	
@@ -114,16 +112,16 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	Veamos
 	
 	\begin{align}
-	f_*\mu_{n_j} =& f_* \left( \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu_0 \right)\\
-	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f_*^{i+1} \mu_0\\
-	=& \frac{1}{n_j} \left( \sum_{i=0}^{n_j-1} f^i_* \mu_0 - \mu_0 + f^{n_j}_* \mu_0 \right)\\
-	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu_0 - \frac{\mu_0}{n_j} + \frac{f^{n_j}_* \mu_0}{n_j}\\
-	=& \mu_{n_j} - \frac{\mu_0}{n_j} + \frac{f^{n_j}_* \mu_0}{n_j}
+	f_*\mu_{n_j} =& f_* \left( \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu \right)\\
+	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f_*^{i+1} \mu\\
+	=& \frac{1}{n_j} \left( \sum_{i=0}^{n_j-1} f^i_* \mu - \mu + f^{n_j}_* \mu \right)\\
+	=& \frac{1}{n_j} \sum_{i=0}^{n_j-1} f^i_* \mu - \frac{\mu}{n_j} + \frac{f^{n_j}_* \mu}{n_j}\\
+	=& \mu_{n_j} - \frac{\mu}{n_j} + \frac{f^{n_j}_* \mu}{n_j}
 	\end{align}
 	
-	Cuando $n_j \rightarrow \infty$ se ve que $f_* \mu_{n_j} \rightarrow \mu$. Por lo tanto $f_*\mu=\mu$. Por lo tanto existe $\mu \in \mathcal{M}_f$ con lo que $\mathcal{M}_f \neq \emptyset$.
+	Cuando $n_j \rightarrow \infty$ se ve que $f_* \mu_{n_j} \rightarrow \mu$. Por lo tanto $f_*\mu=\mu$. Por lo tanto existe $\mu \in \mathcal{M}_f(X,\Sigma)$ con lo que $\mathcal{M}_f(X,\Sigma) \neq \emptyset$.
 	
-	Ahora vamos a probar que $\mathcal{M}_f$ es convexo. Sea $\mu_1,\mu_2 \in \mathcal{M}_f$, hay que demostrar que
+	Ahora vamos a probar que $\mathcal{M}_f(X,\Sigma)$ es convexo. Sea $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$, hay que demostrar que
 	
 	\begin{equation}
 	f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2, \quad t \in [0,1]
@@ -138,13 +136,13 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	=& (t\mu_1 + (1-t)\mu_2)(A)
 	\end{align}
 	
-	Luego $f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2$ con lo que $t\mu_1 + (1-t)\mu_2 \in \mathcal{M}_f$.
+	Luego $f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2$ con lo que $t\mu_1 + (1-t)\mu_2 \in \mathcal{M}_f(X,\Sigma)$.
 	
-	Finalmente, probaremos que $\mathcal{M}_f$ es compacto. Como sabemos que $\mathcal{M}$ es compacto porque $M$ es compacto entonces sólo hay que probar que $\mathcal{M}_f$ es cerrado.
+	Finalmente, probaremos que $\mathcal{M}_f(X,\Sigma)$ es compacto. Como sabemos que $\mathcal{M}(X,\Sigma)$ es compacto porque $M$ es compacto entonces sólo hay que probar que $\mathcal{M}_f(X,\Sigma)$ es cerrado.
 	
-	Sea $(\mu_n) \subset \mathcal{M}_f$ una sucesión tal que $\mu_n \rightarrow \mu$. Hay que demostrar que $\mu \in \mathcal{M}_f$.
+	Sea $(\mu_n) \subset \mathcal{M}_f(X,\Sigma)$ una sucesión tal que $\mu_n \rightarrow \mu$. Hay que demostrar que $\mu \in \mathcal{M}_f(X,\Sigma)$.
 	
-	Por definición de convergencia en la topología débil * se tiene que, en particular, para $\varphi \circ f \in \mathcal{C}(M,\mathbb{R})$ con $\varphi \in \mathcal{C}(M,\mathbb{R})$ lo siquiente
+	Por definición de convergencia en la topología débil * se tiene que, en particular, para $\varphi \circ f \in \mathcal{C}(X)$ con $\varphi \in \mathcal{C}(X)$ lo siquiente
 	
 	\begin{align}
 	\int \varphi \circ f d\mu &= \lim_{n \rightarrow \infty} \int \varphi \circ f d\mu_n\\
@@ -153,7 +151,7 @@ Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\m
 	=& \int \varphi d\mu
 	\end{align}
 	
-	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f$.
+	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f(X,\Sigma)$.
 \end{proof}
 
 \begin{teorema}[Máxima desigualdad]
