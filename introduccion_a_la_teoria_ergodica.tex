@@ -1,9 +1,9 @@
 \section{Introducción a la Teoría Ergódica}
 
-En esta sección consideraremos a $X$ como un espacio métrico compacto y a $\Sigma$ como un $\sigma$-álgebra de $X$. 
+En esta sección consideraremos a $X$ como un espacio métrico compacto,a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f \in \mathcal{C}(X)$. La medida $\mu$ se dice $f$-invariante si
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. La medida $\mu$ se dice $f$-invariante si
 	
 	\begin{equation}
 		\mu(f^{-1}A) = \mu A
@@ -13,7 +13,7 @@ En esta sección consideraremos a $X$ como un espacio métrico compacto y a $\Si
 \end{definicion}
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f \in \mathcal{C}(X)$ con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad  con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
 	
 	\begin{equation}
 		\Sigma_f = \{ A \in \Sigma: \mu(f^{-1}A) = \mu A \}
@@ -39,7 +39,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{definicion}
 
 \begin{definicion}
-	Sea $f \in \mathcal{C}(X)$. Se define $\mathcal{M}_f(X,\Sigma)$ de la siguiente manera
+	Se define $\mathcal{M}_f(X,\Sigma)$ de la siguiente manera
 	
 	\begin{equation}
 		\mathcal{M}_f(X,\Sigma) = \{ \mu \in \mathcal{M}(X,\Sigma): \mu(f^{-1} A) = \mu A, \forall A \in \Sigma \}
@@ -47,7 +47,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{definicion}
 
 \begin{definicion}
-	Sea $f \in \mathcal{C}(X)$. Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera
+	Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera
 	
 	\begin{equation}
 		\varepsilon_f(X,\Sigma) = \{ \mu \in \mathcal{M}_f(X,\Sigma): \mu A = 0 \vee \mu A = 1, \forall A \in \Sigma \}
@@ -55,7 +55,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{definicion}
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f \in \mathcal{C}(X)$. Entonces para cualquier conjunto $A \subset \Sigma$, $f_*: \mathcal{M}(X,\Sigma) \rightarrow \mathcal{M}(X,\Sigma)$ se define como
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Entonces para cualquier conjunto $A \subset \Sigma$, $f_*: \mathcal{M}(X,\Sigma) \rightarrow \mathcal{M}(X,\Sigma)$ se define como
 	
 	\begin{equation}
 		f_*\mu(A) = \mu(f^{-1}(A))
@@ -63,7 +63,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{definicion}
 
 \begin{lema}\label{lema1_krylov-bugoliubov}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $f,\varphi \in \mathcal{C}(X)$. Entonces
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $\varphi \in \mathcal{C}(X)$. Entonces
 	
 	\begin{equation}
 		\int \varphi d(f_*\mu)=\int \varphi \circ f d\mu
@@ -75,7 +75,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{lema}
 
 \begin{lema}\label{lema3_krylov}
-	Sean $f,\varphi \in \mathcal{C}(X)$. $\mu \in \mathcal{M}_f(X,\Sigma)$ si y sólo si
+	Sean $\varphi \in \mathcal{C}(X)$. $\mu \in \mathcal{M}_f(X,\Sigma)$ si y sólo si
 	
 	\begin{equation}
 		\int \varphi \circ f d\mu = \int \varphi d\mu
@@ -87,7 +87,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{lema}
 
 \begin{teorema}[Teorema de Krylov-Bugoliubov]
-	Sea $f \in \mathcal{C}(X)$. Entonces $\mathcal{M}_f(X,\Sigma)$ es no vacío, convexo y compacto.
+	$\mathcal{M}_f(X,\Sigma)$ es no vacío, convexo y compacto.
 \end{teorema}
 
 \begin{proof}
@@ -155,11 +155,11 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \end{proof}
 
 \begin{teorema}[Máxima desigualdad]
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
 	
 	\begin{gather}
 		\varphi_n = \sum_{i=0}^{n-1} \varphi \circ f^i\\
-		\varPhi_n x = \max \{f_j x : 0 \leq j \leq n\} \geq 0
+		\varPhi_n x = \max \{\varphi_j x : 0 \leq j \leq n\} \geq 0
 	\end{gather}
 	
 	Sea $A = \{x \in X: \varPhi x > 0 \}$ entonces
@@ -169,8 +169,8 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\end{equation}
 \end{teorema}
 
-\begin{corolario}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$ y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define
+\begin{corolario}\label{maxima_desigualdad_cor}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define
 	
 	\begin{equation}
 		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
@@ -183,10 +183,99 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\end{equation}
 \end{corolario}
 
-\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $f: X \rightarrow X$ con $\mu$ $f$-invariante. Sea $\varphi \in L^1(X,\Sigma,\mu)$ cualquiera y $x \in X$, entonces
+\begin{lema}\label{birkhoff_lema1}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Se definen
+	
+	\begin{gather}
+		h^* x = \limsup_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x\\
+		h_* x = \liminf_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x
+	\end{gather}
+	
+	Entonces $h^* = h_*$.
+	
+\end{lema}
+
+\begin{lema}\label{birkhoff_lema2}
+	Sea $h^*$  definido en el lema \ref{birkhoff_lema1}. Entonces $h^* \in L^1(X,\Sigma,\mu)$.
+\end{lema}
+
+\begin{lema}\label{birkhoff_lema3}
+	Sea $h^*$  definido en el lema \ref{birkhoff_lema1}. Entonces
 	
 	\begin{equation}
+		\int h^* d\mu = \int \varphi d\mu
+	\end{equation}
+\end{lema}
+
+\begin{proof}
+	Para $n \in \mathbb{N}$ y $k \in \mathbb{Z}$ se define
+	
+	\begin{equation}
+		D^n_k = \left\{ x \in X: \frac{k}{n} \leq h^* x \leq \frac{k+1}{n} \right\}
+	\end{equation}
+	
+	Para $\epsilon > 0$ cualquiera tenemos, según el corolario \ref{maxima_desigualdad_cor}, $B_{\frac{k}{n}-\epsilon}$. Es fácil ver que se cumple lo siguiente
+	
+	\begin{equation}
+		D^n_k \cap B_{\frac{k}{n}-\epsilon} = D^n_k
+	\end{equation}
+	
+	Entonces por el corolario \ref{maxima_desigualdad_cor} tenemos
+	
+	\begin{equation}
+		\int_{D^n_k} \varphi d\mu \geq \left( \frac{k}{n} - \epsilon \right) \mu D^n_k
+	\end{equation}
+	
+	Como $\epsilon > 0$ es arbitrario entonces
+	
+	\begin{equation}
+		\int_{D^n_k} \varphi d\mu \geq  \frac{k}{n}  \mu D^n_k	
+	\end{equation}
+	
+	
+	Por otro lado, por la definición de $D^n_k$ tenemos
+	
+	\begin{align}
+		\int_{D^n_k} h^* d\mu &\leq \frac{k+1}{n} \mu D^n_k\\
+		& \leq \frac{1}{n} \mu D^n_k + \int_{D^n_k} \varphi d\mu
+	\end{align}
+	
+	Puesto que
+	
+	\begin{equation}
+		X = \bigcup_{k \in \mathbb{Z}} D^n_k
+	\end{equation}
+	
+	con los $D^n_k$ disjuntos dos a dos, se puede sumar sobre $\mathbb{Z}$ el resultado anterior. Veamos
+	
+	\begin{align}
+		\sum_{k \in \mathbb{Z}} \int_{D^n_k} h^* d\mu &\leq \frac{1}{n} \sum_{k \in \mathbb{Z}} \mu D^n_k + \sum_{k \in \mathbb{Z}} \int_{D^n_k} \varphi d\mu\\
+		\int h^* d\mu &\leq \frac{1}{n} + \int \varphi d\mu
+	\end{align}
+	
+	Esto cumple para cualquier $n \in \mathbb{N}$. Haciendo $n \rightarrow \infty$ se obtiene
+	
+	\begin{equation}
+		\int h^* d\mu \leq \int \varphi d\mu
+	\end{equation}
+	
+	Para completar la demostración reemplazaremos $\varphi$ por $-\varphi$. Con esto la desigualdad anterior generaría a la siguiente desigualdad
+	
+	\begin{equation}
+		\int \varphi d\mu \leq \int h_* d\mu
+	\end{equation}
+	
+	Por lo tanto, como por el lema \ref{birkhoff_lema1} sabemos que $h^*=h_*$ entonces
+	
+	\begin{equation}
+		\int h^* d\mu = \int \varphi d\mu
+	\end{equation}
+\end{proof}
+
+\begin{teorema}[Teorema Ergódico de Birkhoff]\label{birkhoff_thm}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad  con $\mu$ $f$-invariante. Sea $\varphi \in L^1(X,\Sigma,\mu)$ cualquiera y $x \in X$, entonces
+	
+	\begin{equation}\label{birkhoff_thm_eq1}
 		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow E(\varphi,\Sigma_f)
 	\end{equation}
 	
@@ -194,8 +283,28 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	
 \end{teorema}
 
+\begin{proof}
+	Por el lema \ref{birkhoff_lema1} se tiene que $\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x$ es convergente.
+	
+	Por el lema \ref{birkhoff_lema3} se tiene que para cualquier $A \in \Sigma_f$
+	
+	\begin{equation}
+		\int _A h^* d\mu = \int_A f d\mu
+	\end{equation}
+	
+	Además también se puede comprobar que $B_{\frac{k}{n}-\epsilon} \in \Sigma_f$.
+	
+	Por la definición \ref{esperanza_conficionada_def} de $E(f|\Sigma_f)$ entonces $E(f|\Sigma_f)=h^*$ porque $E(f|\Sigma_f)$ es única.
+	
+	Por lo tanto
+	
+	\begin{equation}
+		\lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x = E(f|\Sigma_f)
+	\end{equation}
+\end{proof}
+
 \begin{corolario}\label{birkhoff_corolario}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f: X \rightarrow X$, $\varphi \in L^1(X,\Sigma,\mu)$ y $x \in X$. Si $\mu$ es $f$-invariante y ergódica entonces
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $\varphi \in L^1(X,\Sigma,\mu)$ y $x \in X$. Si $\mu$ es $f$-invariante y ergódica entonces
 	
 	\begin{equation}
 		\frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x \rightarrow \int \varphi d\mu
