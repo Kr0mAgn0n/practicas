@@ -1,6 +1,6 @@
 \section{Introducción a la Teoría Ergódica}
 
-En esta sección consideraremos a $X$ como un espacio métrico compacto,a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
+En esta sección consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
 
 \begin{definicion}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. La medida $\mu$ se dice $f$-invariante si
@@ -62,6 +62,8 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\end{equation}
 \end{definicion}
 
+A continuación se analizará la existencia de medidas $f$-invariantes y la topología del conjunto de medidas de probabilidad $f$-invariante una vez que ya se prueba la existencia de alguna medida de ese tipo. Ese análisis se hará a través del desarrollo del Teorema de Krylov-Bugoliubov diviendo la demostración en varios lemas.
+
 \begin{lema}\label{lema1_krylov-bugoliubov}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $\varphi \in \mathcal{C}(X)$. Entonces
 	
@@ -85,6 +87,69 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \begin{lema}
 	$\mathcal{M}(X,\Sigma)$ es compacto. 
 \end{lema}
+
+\begin{proof}
+	Se demostrará que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto en la topología débil *. Con esto, por el teorema \ref{compacto-sec_compacto} se afirmará que $\mathcal{M}(X,\Sigma)$ es compacto.
+	
+	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión. Por otro lado, como $\mathcal{C}(X)$ es separable entonces existe un conjunto denso $\{f_n\}_{n \geq 1} \subset \mathcal{C}(X)$. Esto quiere decir que para cualquier $f \in \mathcal{C}(X)$ se tiene que dando un $\epsilon > 0$ existe $f_i$ tal que
+	
+	\begin{equation}
+		|f - f_i| < \epsilon
+	\end{equation}
+	
+	Definamos
+	
+	\begin{equation}
+		I(\mu,f) := \int f d\mu
+	\end{equation}
+	
+	Para $f_1$ tomemos $I(\mu_n,f_1)$. Se observa que $I(\mu_n,f_1)$ es una sucesión en $\mathbb{R}$. Entonces
+	
+	\begin{equation}
+		|I(\mu_n,f_1)| = \left| \int f_1 d\mu_n \right| \leq \int |f_1| d\mu_n = |f_1|
+	\end{equation} 
+	
+	$I(\mu_n,f_1)$ es una sucesión acotada en $\mathbb{R}$ entonces tiene una subsucesión convergente. Sea el conjunto $\mathbb{N}_1 \subset \mathbb{N}$ el conjunto de los índices de la subsucesión. 
+	
+	Ahora trabajando con los índices $\mathbb{N}_1$ se puede ver también que $I(\mu_n,f_2)$, para $n \in \mathbb{N}_1$, también es acotada. Entonces se puede tomar una subsucesión convergente con índices $\mathbb{N}_2 \subset \mathbb{N}_1$.
+	
+	Este proceso se puede seguir hasta conseguir un conjunto de índices $\mathbb{N}_i \subset \mathbb{N}_{i-1} \subset \ldots \subset \mathbb{N}_1 \subset \mathbb{N}$ tal que $I(\mu_n,f_j)$ es convergente para $n \in \mathbb{N}_i$ y para $1 \leq j \leq i$. A está sucesión convergente se le puede extraer una subsucesión $I()$ que seguirá siendo convergente al mismo límite. Sea $I(\mu_{n_i},f_i)$ una subsucesión de las antes nombradas con $n_i \in \mathbb{N}_i$. Como $I(\mu_{n_i},f_i)$ es convergente en $\mathbb{R}$ entonces es una sucesión de Cauchy. Entonces, para el $\epsilon > 0$ que se tomo al inicio, existe $N \in \mathbb{N}$ tal que para $m,k > N$ se cumple
+		
+	\begin{equation}
+		|I(\mu_{n_m},f_i) - I(\mu_{n_k},f_i)| < \epsilon
+	\end{equation}
+	
+	Luego, para el $f$ tomado al inicio, se observa lo siguiente
+	
+	\begin{align}
+		|I(\mu_{n_m},f) - I(\mu_{n_k},f)| &\leq |I(\mu_{n_m},f) - I(\mu_{n_m},f_i) | \\
+		& + |I(\mu_{n_m},f_i) - I(\mu_{n_k},f_i)| \\		
+		& + |I(\mu_{n_k},f_i) - I(\mu_{n_k},f)|\\
+		& < 3\epsilon
+	\end{align}
+	
+	Entonces $I(\mu_{n_i},f)$ es una sucesión de Cauchy en $\mathbb{R}$. Por lo tanto $I(\mu_{n_i},f)$ es convergente.
+	
+	En resumen, se logró que para cualquier $f \in \mathcal{C}(X)$ existe una subsucesión $(\mu_{n_i})$ tal que
+	
+	\begin{equation}
+		I(\mu_{n_i},f) = \int f d\mu_{n_i}
+	\end{equation}
+	
+	es convergente. Sea $A: \mathcal{C}(X) \rightarrow \mathbb{R}$ tal que esta definida como
+	
+	\begin{equation}
+		Af = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
+	\end{equation}
+	
+	Se observa que $A$ es lineal y acotado. Entonces se puede aplicar el Teorema de Representación de Riesz \ref{riesz}. En conclusión, existe $\mu \in \mathcal{M}(X,\Sigma)$ tal que
+	
+	\begin{equation}
+		Af = \int f d\mu = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
+	\end{equation}
+	
+	Por lo tanto $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto con la topología débil *.
+\end{proof}
 
 \begin{teorema}[Teorema de Krylov-Bugoliubov]
 	$\mathcal{M}_f(X,\Sigma)$ es no vacío, convexo y compacto.
@@ -154,7 +219,9 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f(X,\Sigma)$.
 \end{proof}
 
-\begin{teorema}[Máxima desigualdad]
+A continuación se va a demostrar el Teorema Erǵodico de Birkhoff paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.
+
+\begin{lema}[Máxima desigualdad]
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
 	
 	\begin{gather}
@@ -167,9 +234,9 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\begin{equation}
 		\int_A \varphi d\mu \geq 0
 	\end{equation}
-\end{teorema}
+\end{lema}
 
-\begin{corolario}\label{maxima_desigualdad_cor}
+\begin{lema}\label{maxima_desigualdad_cor}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define
 	
 	\begin{equation}
@@ -181,7 +248,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\begin{equation}
 		\int_{B_{\alpha} \cap A} g d\mu \geq \alpha \mu(B_{\alpha} \cap A)
 	\end{equation}
-\end{corolario}
+\end{lema}
 
 \begin{lema}\label{birkhoff_lema1}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Se definen
