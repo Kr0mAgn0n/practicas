@@ -1,4 +1,4 @@
-\section{Propiedades de la rotación irracional en $S^1$}
+\chapter{Propiedades de la rotación irracional en $S^1$}
 
 \begin{lema}\label{lema_varphi_m}
 	Sea $X$ un espacio métrico compacto, $f \in \mathcal{C}(X,\mathbb{R})$, $\Phi$ un subconjunto denso de $\mathcal{C}(X, \mathbb{R})$ donde para cualquier $\varphi \in \Phi$ existe una constante $\overline{\varphi}$ (que depende de $\varphi$) tal que
@@ -61,13 +61,9 @@
 		\lim_{n \rightarrow \infty} \sum_{i=0}^{n-1} \varphi \circ f^i(x)=\int \varphi d\tilde{\mu}
 	\end{equation}
 	
-	para casi todo punto $x \in X$ con respecto a $\tilde{\mu}$. Por unicidad del límite en la topología débil *, se tiene
+	para casi todo punto $x \in X$ con respecto a $\tilde{\mu}$. 
 	
-	\begin{equation}
-		\int \varphi d\mu = \int \varphi d\tilde{\mu}
-	\end{equation}
-	
-	que cumple para cualquier $\varphi \in \mathcal{C}(X,\mathbb{R})$. Luego se concluye que $\mu=\tilde{\mu}$.
+	Por unicidad del límite en la topología débil* demostrado en \cite{heil}, se tiene que $\mu = \tilde{\mu}$.
 	
 	Ahora supongamos que $\mu$ es la única probabilidad ergódica $f$-invariante. Sea $\overline{\varphi}=\int \varphi d\mu$, hay que demostrar que \eqref{birkhoff_eq} se cumple.
 	
@@ -98,7 +94,7 @@
 		\left| \int \varphi d\nu_k - \overline{\varphi} \right| \geq \epsilon
 	\end{equation}
 	
-	Como $\mathcal{M}$ es compacto, existe una subsucesión $(\nu_{k_j})$ tal que $\nu_{k_j} \rightarrow \nu$ cuando $j \rightarrow \infty$.
+	Como $\mathcal{M}(X,\Sigma)$ es compacto, existe una subsucesión $(\nu_{k_j})$ tal que $\nu_{k_j} \rightarrow \nu$ cuando $j \rightarrow \infty$.
 	
 	Entonces, restringiéndonos a la subsucesión $(\nu_{k_j})$ y tomando límite tenemos
 	
@@ -106,7 +102,7 @@
 		\left| \int \varphi d\nu - \overline{\varphi} \right| = \left| \int \varphi d\nu - \int \varphi d\mu \right| \geq \epsilon
 	\end{equation}
 	
-	Como se supuso que $\varepsilon_f$ es un conjunto unitario entonces $\mathcal{M}_f$ también es un conjunto unitario. Por la prueba del teorema de Krylov-Boguliubov se ve que $\nu \in \mathcal{M}_f$. Luego $\nu \in \varepsilon_f$. 
+	Como se supuso que $\varepsilon_f(X,\Sigma)$ es un conjunto unitario entonces $\mathcal{M}_f(X,\Sigma)$ también es un conjunto unitario. Por la prueba del teorema de Krylov-Boguliubov se ve que $\nu \in \mathcal{M}_f(X,\Sigma)$. Luego $\nu \in \varepsilon_f$. 
 	
 	Por lo tanto, se tiene que $\nu \neq \mu$  y que $\nu \in \varepsilon_f$. Esto contradice la unicidad de la medida ergódica y $f$-invariante.
 \end{proof}

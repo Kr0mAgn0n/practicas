@@ -1,10 +1,9 @@
-\section{Introducción a la Teoría Ergódica}
+\chapter{Introducción a la Teoría Ergódica}
 
 En esta sección consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. La medida $\mu$ se dice $f$-invariante si
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. La medida $\mu$ se dice $f$-invariante si	
 	\begin{equation}
 		\mu(f^{-1}A) = \mu A
 	\end{equation}
@@ -13,8 +12,7 @@ En esta sección consideraremos a $X$ como un espacio métrico compacto, a $\Sig
 \end{definicion}
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad  con $\mu$ $f$-invariante. Se define $\Sigma_f$ como
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad  con $\mu$ $f$-invariante. Se define $\Sigma_f$ como	
 	\begin{equation}
 		\Sigma_f = \{ A \in \Sigma: \mu(f^{-1}A) = \mu A \}
 	\end{equation}
@@ -23,40 +21,35 @@ En esta sección consideraremos a $X$ como un espacio métrico compacto, a $\Sig
 Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es ergódica si para cualquier $A \in \Sigma$ se tiene
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es ergódica si para cualquier $A \in \Sigma$ se tiene	
 	\begin{equation}
 		\mu A = 0 \vee \mu A = 1
 	\end{equation}
 \end{definicion}
 
 \begin{definicion}
-	Se define $\mathcal{M}(X,\Sigma)$ de la siguiente manera
-	
+	Se define $\mathcal{M}(X,\Sigma)$ de la siguiente manera	
 	\begin{equation}
 		\mathcal{M}(X,\Sigma) = \{\mu: \Sigma \rightarrow \mathbb{R}: \mu \text{ es un medida de probabilidad} \}
 	\end{equation}
 \end{definicion}
 
 \begin{definicion}
-	Se define $\mathcal{M}_f(X,\Sigma)$ de la siguiente manera
-	
+	Se define $\mathcal{M}_f(X,\Sigma)$ de la siguiente manera	
 	\begin{equation}
 		\mathcal{M}_f(X,\Sigma) = \{ \mu \in \mathcal{M}(X,\Sigma): \mu(f^{-1} A) = \mu A, \forall A \in \Sigma \}
 	\end{equation}
 \end{definicion}
 
 \begin{definicion}
-	Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera
-	
+	Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera	
 	\begin{equation}
 		\varepsilon_f(X,\Sigma) = \{ \mu \in \mathcal{M}_f(X,\Sigma): \mu A = 0 \vee \mu A = 1, \forall A \in \Sigma \}
 	\end{equation}
 \end{definicion}
 
 \begin{definicion}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Entonces para cualquier conjunto $A \subset \Sigma$, $f_*: \mathcal{M}(X,\Sigma) \rightarrow \mathcal{M}(X,\Sigma)$ se define como
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Entonces para cualquier conjunto $A \subset \Sigma$, $f_*: \mathcal{M}(X,\Sigma) \rightarrow \mathcal{M}(X,\Sigma)$ se define como	
 	\begin{equation}
 		f_*\mu(A) = \mu(f^{-1}(A))
 	\end{equation}
@@ -84,12 +77,16 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	\end{equation}
 \end{lema}
 
-\begin{lema}
+\begin{lema}\label{krylov-bugoliubov-lema3}
 	$\mathcal{M}(X,\Sigma)$ es compacto. 
 \end{lema}
 
 \begin{proof}
-	Se demostrará que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto en la topología débil *. Con esto, por el teorema \ref{compacto-sec_compacto} se afirmará que $\mathcal{M}(X,\Sigma)$ es compacto.
+	Se demostrará que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto en la topología débil *.
+	
+	Se sabe que cualquier conjunto compacto de un espacio métrico es secuencialmente compacto y viceversa. La demostración se puede encontrar en \cite{schep}.
+	
+	Por otro lado, en \cite{walkden} se puede ver la demostración que $\mathcal{M}(X,\Sigma)$ es un espacio métrico. En conclusión, solo se necesita demostrar que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto para afirmar que es compacto.
 	
 	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión. Por otro lado, como $\mathcal{C}(X)$ es separable entonces existe un conjunto denso $\{f_n\}_{n \geq 1} \subset \mathcal{C}(X)$. Esto quiere decir que para cualquier $f \in \mathcal{C}(X)$ se tiene que dando un $\epsilon > 0$ existe $f_i$ tal que
 	
@@ -156,7 +153,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 \end{teorema}
 
 \begin{proof}
-	Recordar que $\mathcal{M}(X,\Sigma)$ es compacto.
+	Recordar que por el lema \ref{krylov-bugoliubov-lema3} $\mathcal{M}(X,\Sigma)$ es compacto.
 	
 	Sea $\mu \in \mathcal{M}(X,\Sigma)$, para $n \geq 1$ definimos
 	
@@ -217,6 +214,100 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	\end{align}
 	
 	Por \ref{lema3_krylov} se tiene $\mu \in \mathcal{M}_f(X,\Sigma)$.
+\end{proof}
+
+\begin{teorema}
+	$\mu \in \varepsilon_f(X,\Sigma)$ si y solo si $\mu$ es un punto extremo de $\mathcal{M}_f(X,\Sigma)$.
+\end{teorema}
+
+\begin{proof}
+	Supongamos que $\mu \notin \varepsilon_f(X,\Sigma)$. Entonces existe $A \in \Sigma_f$ tal que $\mu A \in (0,1)$. Definimos las medidas de probabilidad $\mu_1,\mu_2$ tales que
+	\begin{align}
+		\mu_1 B &= \frac{\mu(B \cap A)}{\mu A}\\
+		\mu_2 B &= \frac{\mu(B \cap A^c)}{\mu A}
+	\end{align}
+	
+	donde $B \in \Sigma$ cualquiera.
+	
+	Se observa que $\mu = (\mu A) \mu_1 + (\mu(A^c)) \mu_2$ con $\mu A \in (0,1)$. Entonces $\mu$ no es punto extremo de $\mathcal{M}(X,\Sigma)$ pero lo que se quiere es no sea punto extremo de $\mathcal{M}_f(X,\Sigma)$. Para demostrar la última afirmación se tiene que demostrar que $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$. En efecto, sea $B \in \Sigma$ entonces
+	\begin{align}
+		\mu_1(f^{-1}B) &= \frac{\mu(f^{-1}B \cap A)}{\mu A}\\
+		&= \frac{\mu(f^{-1}B \cap f^{-1}A)}{\mu A}\\
+		&= \frac{\mu(f^{-1}(B \cap A))}{\mu A}\\
+		&= \frac{\mu (B \cap A)}{\mu A}\\		
+		&= \mu_1 B
+	\end{align}
+	
+	Entonces $\mu_1 \in \mathcal{M}_f(X,\Sigma)$. Haciendo lo mismo para $\mu_2$ se tiene que $\mu_2 \in \mathcal{M}_f(X,\Sigma)$.
+	
+	Ahora supongamos que $\mu \in \varepsilon_f(X,\Sigma)$ y supongamos que existen $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$ tales que
+	\begin{equation}
+		\mu = t\mu_1 + (1-t)\mu_2, t \in (0,1)
+	\end{equation}
+	
+	Demostraremos que lo último implica que $\mu_1=\mu_2=\mu$. Vamos a demostrar que $\mu_2=\mu$. Se observa que $\mu_1 \ll \mu$. Luego, por el teorema de Radon-Nykodin \ref{radon-nikodyn}, existe $h_1$ no negativa tal para cualquier $B \in \Sigma$
+	\begin{equation}
+		\mu_1 B = \int_B h_1 d\mu
+	\end{equation}
+	
+	Si se demuestra que $h_1 = 1$ en c.t.p. entonces tendríamos la equivalencia.
+	
+	Sean
+	\begin{align}
+		B &= \{ x \in X: h_1 x < 1 \}\\
+		C &= \{ x \in X: h_1 x > 1 \}
+	\end{align}
+	
+	Se observa que
+	\begin{align}
+		\mu_1 B &= \int_B h_1 d\mu\\
+		&= \int_{B \cap f^{-1}B} h_1 d\mu + \int_{B \setminus f^{-1}B} h_1 d\mu\\
+	\end{align}
+	
+	También se observa que
+	\begin{align}
+		\mu_1(f^{-1}B) &= \int_{f^{-1}B} h_1 d\mu\\
+		&= \int_{f^{-1}B \cap B} h_1 d\mu + \int_{f^{-1}B \setminus B} h_1 d\mu\\
+	\end{align}
+	
+	Como $\mu_1 \in \mathcal{M}_f(X,\Sigma)$ entonces $\mu_1 B = \mu_1(f^{-1}B)$.
+	
+	Luego
+	\begin{equation}
+		\int_{B \setminus f^{-1}B} h_1 d\mu = \int_{f^{-1}B \setminus B} h_1 d\mu
+	\end{equation}
+	
+	Notar que
+	\begin{align}
+		\mu(f^{-1}B \setminus B) &= \mu(f^{-1}B) - \mu(f^{-1}B \cap B)\\
+		&= \mu B - \mu(f^{-1}B \cap B)\\
+		&= \mu(B \setminus f^{-1}B)
+	\end{align}
+	
+	Por la definición de $B$ se tiene
+	\begin{align}
+		\int_{B \setminus f^{-1}B} h_1 d\mu &< \mu(B \setminus f^{-1}B)\\
+		\int_{f^{-1}B \setminus B} h_1 d\mu &\geq \mu(f^{-1}B \setminus B)
+	\end{align}
+	
+	Pero esto no llevaría a una contradicción si la medida es positiva, luego
+	\begin{equation}
+		\mu(B \setminus f^{-1}B) = \mu(f^{-1}B \setminus B) = 0
+	\end{equation}
+	
+	Así $f^{-1}B=B$ en c.t.p. Luego, por la ergodicidad de $\mu$ se tiene
+	\begin{equation}
+		\mu B = 1 \vee \mu B = 0
+	\end{equation}
+	
+	Si asumimos que $\mu B = 1$ entonces
+	\begin{equation}
+		1 = \mu M = \int_M h_1 d\mu = \int_B h_1 d\mu < \mu B = 1
+	\end{equation}
+	
+	Contradicción. Entonces $\mu B = 0$. Procediendo similarmente con $C$ se obtiene $\mu C = 0$. Por lo tanto $h_1 = 1$ en c.t.p.
+	
+	Por lo tanto $\mu_1=\mu_2=\mu$.
 \end{proof}
 
 A continuación se va a demostrar el Teorema Erǵodico de Birkhoff paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.

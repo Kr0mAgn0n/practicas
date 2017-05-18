@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 
 %\usepackage{ucs}
 \usepackage[utf8]{inputenc}
@@ -8,20 +8,20 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-%\usepackage{parskip}
 \usepackage{biblatex}
 \usepackage{hyperref}
+\usepackage{setspace}
 
-\newtheorem{teorema}{Teorema}[section]
+\newtheorem{teorema}{Teorema}[chapter]
 
-\newtheorem{lema}{Lema}[section]
+\newtheorem{lema}{Lema}[chapter]
 
-\newtheorem{propiedad}{Propiedad}[section]
+\newtheorem{propiedad}{Propiedad}[chapter]
 
-\newtheorem{corolario}{Corolario}[section]
+\newtheorem{corolario}{Corolario}[chapter]
 
 \theoremstyle{definition}
-\newtheorem{definicion}{Definición}[section]
+\newtheorem{definicion}{Definición}[chapter]
 
 \bibliography{referencias}
 
@@ -34,11 +34,13 @@
 \title{Análisis de la rotación irracional de $S^1$}
 \author{Mario Lamas}
 
+\onehalfspacing
+
 \begin{document}
 	
 	\maketitle
 	
-	\input{topologia}
+	%\input{topologia}
 	\input{teoria_de_la_medida}
 	\input{introduccion_a_la_teoria_ergodica} 
 	\input{rotacion_irracional_del_circulo}

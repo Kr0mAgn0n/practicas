@@ -1,8 +1,7 @@
-\section{Teoría de la Medida}
+\chapter{Teoría de la Medida}
 
 \begin{definicion}
-	Sea $\mu$ una medida en $(X,\Sigma)$.Se dice que la medida $\nu$ es \textit{absolutamente continua} con respecto a $\mu$ si
-	
+	Sea $\mu$ una medida en $(X,\Sigma)$. Se dice que la medida $\nu$ es \textit{absolutamente continua} con respecto a $\mu$ si	
 	\begin{equation}
 		\forall A \in \Sigma, \mu A = 0 \Rightarrow \nu A = 0
 	\end{equation}
@@ -11,8 +10,7 @@
 \end{definicion}
 
 \begin{teorema}[Radon-Nikodyn]\label{radon-nikodyn}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Sea $\nu$ una medida definida en $\Sigma$ con $\nu \ll \mu$. Entonces existe una función no negativa medible $f$ tal que
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Sea $\nu$ una medida definida en $\Sigma$ con $\nu \ll \mu$. Entonces existe una función no negativa medible $f$ tal que	
 	\begin{equation}
 		\nu A = \int_A f d\mu, \forall A \in \Sigma
 	\end{equation}
@@ -21,14 +19,12 @@
 \end{teorema}
 
 \begin{definicion}\label{esperanza_conficionada_def}
-	Sea $\Sigma' \subset \Sigma$ una sub-$\sigma$-álgebra, $f \in L^1(X,\Sigma,\mu)$ con $f \geq 0$ en $\mu$-c.t.p y $\nu$ una medida definida en $\Sigma'$ con
-	
+	Sea $\Sigma' \subset \Sigma$ una sub-$\sigma$-álgebra, $f \in L^1(X,\Sigma,\mu)$ con $f \geq 0$ en $\mu$-c.t.p y $\nu$ una medida definida en $\Sigma'$ con	
 	\begin{equation}
 		\nu A = \int_A f d\mu, \forall A \in \Sigma'
 	\end{equation}
 	
-	Como $\nu \ll \mu|_{\Sigma'}$, por el teorema \ref*{radon-nikodyn}, se tiene que existe una única función $\Sigma'$-medible no negativa en $\mu$-c.t.p. que se denotará $E(f|\Sigma')$ tal que
-	
+	Como $\nu \ll \mu|_{\Sigma'}$, por el teorema \ref*{radon-nikodyn}, se tiene que existe una única función $\Sigma'$-medible no negativa en $\mu$-c.t.p. que se denotará $E(f|\Sigma')$ tal que	
 	\begin{equation}
 		\nu A = \int_A E(f|\Sigma') d\mu, \forall A \in \Sigma'
 	\end{equation}
@@ -37,14 +33,12 @@
 \end{definicion}
 
 Hay que observar que $E(f|\Sigma')$ está definida para $f \geq 0$. Este concepto se puede extender para funciones $f \in L^1(X,\Sigma,\mu)$ en general. Se define $E(f|\Sigma')$ para $f \in L^1(X,\Sigma,\mu)$ de la siguiente forma
-
 \begin{equation}
 	E(f|\Sigma') = E(f_+|\Sigma')- E(f_-,\Sigma')
 \end{equation}
 
 \begin{definicion}\label{trivial_sigma-algebra}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Se define $N \subset \Sigma$ como
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Se define $N \subset \Sigma$ como	
 	\begin{equation}
 	N = \{ A \in \Sigma: \mu A = 0 \vee \mu A = 1 \}
 	\end{equation}
@@ -53,8 +47,7 @@ Hay que observar que $E(f|\Sigma')$ está definida para $f \geq 0$. Este concept
 Se puede demostrar que $N$ es un $\sigma$-álgebra. $\emptyset \in N$ porque $\mu \emptyset = 0$. Sea $A \in N$ entonces $\mu A = 0 \vee \mu A = 1$. Como $\mu(X \setminus A) = 1 - \mu A$ entonces se tiene que $\mu(X \setminus A) = 0 \vee \mu(X \setminus A) = 1$. Con esto se tiene que $X \setminus A \in N$. Por último, sea $\{A_n\}_{n \geq 1} \subset N$.  Si suponemos que $0 < \mu(\cup_{n \geq 1} A_n) \leq \sum_{n \geq 1} \mu A_n$ entonces $\forall n \geq 1, 0 < \mu A_n$. Con esto se tiene que $\forall n \geq 1, \mu A_n = 1$. Luego se tiene $\mu(X \setminus \cup_{n \geq 1} A_n) \leq \mu(X \setminus \cap_{n \geq 1} A_n) = \mu(\cup_{n \geq 1} (X \setminus A_n)) \leq \sum_{n \geq 1} \mu(X \setminus A_n) = 0$. Por lo tanto, si suponemos que $0 < \mu(\cup_{n \geq 1} A_n)$  se llega a que $\mu(X \setminus \cup_{n \geq 1} A_n) = 0$ y con esto a $\mu(\cup_{n \geq 1} A_n) = 1$. Por lo tanto $N$ es un $\sigma$-álgebra.
 
 \begin{propiedad}\label{esperanza_en_sigma-algebra_trivial}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f \in L^1(X,\Sigma,\mu)$ y $N'$ un sub-$\sigma$-álgebra de $N$. Entonces
-	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad, $f \in L^1(X,\Sigma,\mu)$ y $N'$ un sub-$\sigma$-álgebra de $N$. Entonces	
 	\begin{equation}
 	\int_A E(f|N') d\mu = E(f|N'), \forall A \in N
 	\end{equation}
