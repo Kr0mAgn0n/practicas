@@ -1,5 +1,125 @@
 \chapter{Teoría de la Medida}
 
+En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida que van a ser usados en los siguientes capítulos. Los conceptos básicos serán comentados y los importantes serán resaltados.
+
+\begin{teorema}[Teorema de la Convergencia Monótona]\label{convergencia_monotona}
+	Si $(f_n)$ es una sucesión creciente de funciones medibles no negativas que converge a $f$ entonces
+	\begin{equation}
+		\int f d\mu = \lim \int f_n d\mu
+	\end{equation}
+\end{teorema}
+
+\begin{proof}
+	Es claro que $f$ es una función medible. Puesto que $f_n \leq f_{n+1} \leq f$ entonces
+	\begin{equation}
+		\int f_n d\mu \leq \int f_{n+1} d\mu \leq \int f d\mu
+	\end{equation}
+	
+	para todo $n$. Entonces
+	\begin{equation}
+		\lim \int f_n d\mu \leq \int f d\mu
+	\end{equation}
+	
+	Por otro lado, sea $0 < \alpha < 1$ cualquiera y $\varphi$ una función simple cualquiera tal que $0 \leq \varphi \leq f$. Se define
+	\begin{equation}
+		A_n = \{ x \in X: f_n x \geq \alpha (\varphi x) \}
+	\end{equation}
+	
+	Se puede observar que $A_n \subset A_{n+1}$ y que $A_n \rightarrow X$ cuando $n \rightarrow \infty$. Luego
+	\begin{equation}
+		\int_{A_n} \alpha \varphi d\mu \leq \int_{A_n} f_n d\mu \leq \int f_n d\mu
+	\end{equation}
+	
+	Como $A_n \rightarrow X$ entonces se puede afirmar que
+	\begin{equation}
+		\int \varphi d\mu = \lim \int_{A_n} \varphi d\mu
+	\end{equation}
+	
+	Luego en el penúltimo resultado procedemos a tomar limite
+	\begin{equation}
+		\int \alpha \varphi d\mu \leq \lim \int f_n d\mu
+	\end{equation}
+	
+	Como el $\alpha$ era arbitrario tal que $0 < \alpha < 1$ entonces
+	\begin{equation}
+		\int \varphi d\mu \leq \lim \int f_n d\mu
+	\end{equation}
+	
+	Como $\varphi$ era una función simple arbitraria tal que $\varphi \leq f$ entonces
+	\begin{equation}
+		\int f d\mu = \sup_\varphi \int \varphi d\mu \leq \lim \int f_n d\mu
+	\end{equation}
+	
+	Por lo tanto, $\int f d\mu = \lim \int f_n d\mu$.
+\end{proof}
+
+\begin{teorema}[Lema de Fatou]\label{fatou}
+	Sea $(f_n)$ una sucesión de funciones medibles no negativas. Entonces
+	\begin{equation}
+		\int (\liminf f_n) d\mu \leq \liminf \int f_n d\mu
+	\end{equation}
+\end{teorema}
+
+\begin{proof}
+	Sea $g_m = \inf \{ f_m,f_{m+1},\ldots \}$. Se observa que $g_m \leq f_n$ siempre que $m \leq n$. Entonces
+	\begin{equation}
+		\int g_m d\mu \leq \int f_n d\mu, \qquad m \leq n
+	\end{equation}
+	
+	Luego se tiene
+	\begin{equation}
+		\int g_m d\mu \leq \liminf 	\int f_n d\mu
+	\end{equation}
+	
+	Como la sucesión $(g_m)$ es creciente y converge a $\liminf f_n$, entonces, por Teorema de Convergencia Monótona \ref{convergencia_monotona}
+	\begin{align}
+		\int (\liminf f_n) d\mu &= \int g_m d\mu\\
+		&\leq \liminf \int f_n d\mu
+	\end{align}
+\end{proof}
+
+\begin{teorema}[Teorema de Convergencia Dominada de Lebesgue]\label{convergencia_dominada}
+	Sea $(f_n)$ una sucesión de funciones integrables que convergente puntualmente en casi todo punto  a una función medible $g$. Si existe una función integrable $g$ tal que $|f_n| \leq g$ para todo $n$, entonces $f$ es integrable y
+	\begin{equation}
+		\int f d\mu = \lim_{n \rightarrow \infty} \int f_n d\mu
+	\end{equation}
+\end{teorema}
+
+\begin{proof}
+	Como $|f_n| \leq g$ entonces $g + f_n \geq 0$. Aplicando el lema de Fatou \ref{fatou} tenemos
+	\begin{align}
+		\int g d\mu + \int f d\mu &= \int (g+f) d\mu \leq \liminf \int (g+f_n) d\mu\\
+		&= \liminf \left( \int g d\mu + \int f_n d\mu \right)\\
+		&= \int g d\mu + \liminf \int f_n d\mu
+	\end{align}
+	
+	Luego se tiene que
+	\begin{equation}
+		\int f d\mu \leq \liminf \int f_n d\mu
+	\end{equation}
+	
+	Por otro lado, también se cumple que $g - f_n \geq 0$. Aplicando de nuevo el lema de Fatou se tiene
+	\begin{align}
+		\int g d\mu - \int f d\mu &= \int (g-f) d\mu \leq \liminf \int (g - f_n) d\mu\\
+		&= \int g d\mu - \limsup \int f_n d\mu
+	\end{align}
+	
+	De la ecuación anterior se concluye que
+	\begin{equation}
+		\limsup \int f_n d\mu \leq \int f d\mu
+	\end{equation}
+	
+	Si juntamos este resultado con el resultado anterior se observa que
+	\begin{equation}
+		\limsup \int f_n d\mu \leq \int f d\mu \leq \liminf \int f_n d\mu
+	\end{equation}
+	
+	Por lo tanto, el límite de $\int f_n d\mu$ existe y
+	\begin{equation}
+		\int f d\mu = \lim \int f_n d\mu
+	\end{equation}
+\end{proof}
+
 \begin{definicion}
 	Sea $\mu$ una medida en $(X,\Sigma)$. Se dice que la medida $\nu$ es \textit{absolutamente continua} con respecto a $\mu$ si	
 	\begin{equation}

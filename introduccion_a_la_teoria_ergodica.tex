@@ -1,6 +1,10 @@
 \chapter{Introducción a la Teoría Ergódica}
 
-En esta sección consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
+En este capítulo se desarrollaran los conceptos necesarios para  demostrar el Teorema Ergódica de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
+
+A partir de ahora consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
+
+A continuación se van a enumerar las definiciones de los conceptos usados en este capítulo.
 
 \begin{definicion}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. La medida $\mu$ se dice $f$-invariante si	
@@ -44,7 +48,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 \begin{definicion}
 	Se define $\varepsilon_f(X,\Sigma)$ de la siguiente manera	
 	\begin{equation}
-		\varepsilon_f(X,\Sigma) = \{ \mu \in \mathcal{M}_f(X,\Sigma): \mu A = 0 \vee \mu A = 1, \forall A \in \Sigma \}
+		\varepsilon_f(X,\Sigma) = \{ \mu \in \mathcal{M}(X,\Sigma): \mu A = 0 \vee \mu A = 1, \forall A \in \Sigma \text{ con } f^{-1}A = A  \}
 	\end{equation}
 \end{definicion}
 
@@ -55,27 +59,80 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\end{equation}
 \end{definicion}
 
+Las definiciones anteriores servirán para analizar las propiedades topológicas del espacio de medida de probabilidad pero aún falta el concepto de convergencia dentro de ese conjunto. Para eso de definirá el concepto de la convergencia en la topología débil* que servirá para tener una noción de como afirmar que una sucesión de medidas de probabilidad converge a una medida probabilidad.
+
+\begin{definicion}
+	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión de medidas de probabilidad y $\mu \in \mathcal{M}(X,\Sigma)$. Se dice que $\mu_n \rightarrow \mu$ en la topología débil* si
+	\begin{equation}
+		\int \varphi d\mu_n \rightarrow \int \varphi d\mu, \forall \varphi \in \mathcal{C}(X)
+	\end{equation}
+\end{definicion}
+
 A continuación se analizará la existencia de medidas $f$-invariantes y la topología del conjunto de medidas de probabilidad $f$-invariante una vez que ya se prueba la existencia de alguna medida de ese tipo. Ese análisis se hará a través del desarrollo del Teorema de Krylov-Bugoliubov diviendo la demostración en varios lemas.
 
 \begin{lema}\label{lema1_krylov-bugoliubov}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $\varphi \in \mathcal{C}(X)$. Entonces
 	
 	\begin{equation}
-		\int \varphi d(f_*\mu)=\int \varphi \circ f d\mu
+		\int_A \varphi d(f_*\mu)=\int_A \varphi \circ f d\mu, \forall A \in \Sigma
 	\end{equation}
 \end{lema}
+
+\begin{proof}
+	Sea $\varphi = \chi_A$ para algún $A \in \Sigma$. Entonces
+	\begin{align}
+		\int \chi_A d(f_* \mu) &= f_* \mu(A)\\
+		&= \mu(f^{-1} A)\\
+		&= \int \chi_{f^{-1}A} d\mu\\
+		&= \int \chi_A \circ f d\mu
+	\end{align}
+	
+	Esto también cumple si $\varphi$ fuese una función simple.
+	
+	Si $\varphi$ fuese una función integrable no negativa entonces $\varphi$ es el límite puntual de una secuencia creciente de $\{ \varphi_n \}$ de funciones simples. Luego la sucesión $\{ \varphi_n \circ f \}$ es una sucesión creciente también de funciones simples que convergen puntualmente a $\varphi \circ f$.
+	
+	Por definición de integral de Lebesge se tiene
+	\begin{align}
+		\int_A \varphi_n d(f_* \mu) &\rightarrow \int_A \varphi d(f_* \mu)\\
+		\int_A \varphi_n \circ f d\mu &\rightarrow \int_A \varphi \circ f d\mu
+	\end{align}
+\end{proof}
 
 \begin{lema}
 	$f_* \in \mathcal{C}(\mathcal{M}(X,\Sigma))$. 
 \end{lema}
 
-\begin{lema}\label{lema3_krylov}
-	Sean $\varphi \in \mathcal{C}(X)$. $\mu \in \mathcal{M}_f(X,\Sigma)$ si y sólo si
+\begin{proof}
+	Tomemos la sucesión $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ tal que $\mu_n \rightarrow \mu$. Se tiene que demostrar que
+	\begin{equation}
+		f_* \mu_n \rightarrow f_* \mu
+	\end{equation}
 	
+	Y esto significa que para cualquier $\varphi \in \mathcal{C}(X)$ se tiene que cumplir que
+	\begin{equation}
+		\int \varphi d(f_* \mu_n) \rightarrow \int \varphi d(f_* \mu)
+	\end{equation}
+	
+	En efecto,
+	\begin{equation}
+		\int \varphi d(f_* \mu_n) = \int \varphi \circ f d\mu_n \rightarrow \int \varphi \circ f d\mu = \int \varphi d(f_* \mu)
+	\end{equation}
+	
+	Con esto se concluye que $f_* \mu_n \rightarrow f_* \mu$.
+\end{proof}
+
+\begin{lema}\label{lema3_krylov}
+	Sean $\varphi \in \mathcal{C}(X)$. $\mu \in \mathcal{M}_f(X,\Sigma)$ si y sólo si	
 	\begin{equation}
 		\int \varphi \circ f d\mu = \int \varphi d\mu
 	\end{equation}
 \end{lema}
+
+\begin{proof}
+	Por el lema \ref{lema1_krylov-bugoliubov} se tiene que $\int \varphi \circ f d\mu = \int \varphi d(f_* \mu)$. Como $\mu \in \mathcal{M}_f(X,\Sigma)$ entonces $f_* \mu = \mu$.
+	
+	Por lo tanto $\int \varphi \circ f d\mu = \int \varphi d\mu$.
+\end{proof}
 
 \begin{lema}\label{krylov-bugoliubov-lema3}
 	$\mathcal{M}(X,\Sigma)$ es compacto. 
@@ -310,9 +367,9 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	Por lo tanto $\mu_1=\mu_2=\mu$.
 \end{proof}
 
-A continuación se va a demostrar el Teorema Erǵodico de Birkhoff paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.
+A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estudio principal de este capítulo. La demostración se va a hacer paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.
 
-\begin{lema}[Máxima desigualdad]
+\begin{lema}[Máxima desigualdad]\label{maxima_desigualdad}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
 	
 	\begin{gather}
@@ -327,19 +384,79 @@ A continuación se va a demostrar el Teorema Erǵodico de Birkhoff paso a paso a
 	\end{equation}
 \end{lema}
 
-\begin{lema}\label{maxima_desigualdad_cor}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define
+\begin{proof}
+	Se ve que $\varPhi_n \in L^1(X,\Sigma,\mu)$. Para $0 \leq j \leq n$, tenemos $\varPhi_n \geq \varphi_j$, así $\varPhi_n \circ f \geq \varphi_j \circ f$. Luego
+	\begin{equation}
+		\varPhi_n \circ f + \varphi \geq \varphi_j \circ f + \varphi = \varphi_{j+1}
+	\end{equation}
 	
+	Como esto se cumple para $0 \leq j \leq n$, en particular se cumple
+	\begin{align}
+		(\varPhi_n \circ f)  + \varphi  &\geq \max_{1 \leq j \leq n} \varphi_j  = \varPhi_n\\
+		\varphi &\geq \varPhi_n - \varPhi_n \circ f 
+	\end{align}
+	
+	Integrando sobre $A= \{x: \varPhi_n x > 0\}$ se tiene
+	\begin{equation}
+		\int_A \varphi d\mu \geq \int_A \varPhi_n d\mu - \int_A \varPhi_n \circ f d\mu
+	\end{equation}
+	
+	Como $\varPhi_n x = 0$ cuando $x \in X \setminus A$ entonces
+	\begin{equation}
+		\int_A \varphi d\mu \geq \int_X \varPhi_n d\mu - \int_X \varPhi_n \circ f d\mu
+	\end{equation}
+	
+	Como $\mu$ es $f$-invariante entonces
+	\begin{equation}
+		\int_A \varphi d\mu \geq 0
+	\end{equation}
+\end{proof}
+
+\begin{lema}\label{maxima_desigualdad_cor}
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define	
 	\begin{equation}
 		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
 	\end{equation}
 	
-	entonces para cualquier $A \in \Sigma_f$ se tiene
-	
+	entonces para cualquier $A \in \Sigma$ con $f^{-1}A=A$ se tiene	
 	\begin{equation}
-		\int_{B_{\alpha} \cap A} g d\mu \geq \alpha \mu(B_{\alpha} \cap A)
+		\int_{B_{\alpha} \cap A} \varphi d\mu \geq \alpha \mu(B_{\alpha} \cap A)
 	\end{equation}
 \end{lema}
+
+\begin{proof}
+	Supongamos que $A=X$. Sea $h = \varphi - \alpha$ y, usando la notación del lema \ref{maxima_desigualdad}, tenemos
+	\begin{align}
+		B_{\alpha} &= \bigcup_{n=1}^{\infty} \left\{ x: \sum_{i=0}^{n-1} \varphi \circ f^i x > n \alpha \right\}\\
+		&= \bigcup_{n=1}^{\infty} \{ x: \varphi_n x > 0 \}\\
+		&= \bigcup_{n=1}^{\infty} \{ x: \varPhi_n x > 0 \}
+	\end{align}
+	
+	Sea $C_n = \{ x: \varPhi_n x > 0 \}$. Se observa que $C_n \subset C_{n+1}$ y que $\chi_{C_n}$ converge a $\chi_{B_{\alpha}}$ y así $\varphi \chi_{C_n}$ converge a $\varphi \chi_{B_{\alpha}}$. Además $|\varphi \chi_{C_n}| \leq |\varphi|$. Luego, por el Teorema de Convergencia Dominada \ref{convergencia_dominada} se tiene
+	\begin{equation}
+		\int_{C_n} \varphi d\mu = \int_X \varphi \chi_{C_n} d\mu \rightarrow \int_X \varphi \chi_{B_{\alpha}} d\mu = \int_{B_{\alpha}} \varphi d\mu 
+	\end{equation}
+	
+	Aplicando el lema \ref{maxima_desigualdad} de nuevo, se tiene para todo $n \geq 1$
+	\begin{equation}
+		\int_{C_n} \varphi d\mu \geq 0
+	\end{equation}
+	
+	y así
+	\begin{equation}
+		\int_{B_{\alpha}} \varphi d\mu
+	\end{equation}
+	
+	Con la última desigualdad se obtiene
+	\begin{equation}
+		\int_{B_{\alpha}} h d\mu \geq \alpha \mu B_{\alpha}
+	\end{equation}
+	
+	Para el caso general se trabaja con la restricción de $f$ en $A$ y se aplica máxima desigualdad en el subconjunto para obtener
+	\begin{equation}
+		\int_{B_{\alpha} \cap A} h d\mu \geq \alpha \mu(B_{\alpha} \cap A)
+	\end{equation}
+\end{proof}
 
 \begin{lema}\label{birkhoff_lema1}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Se definen
@@ -349,13 +466,87 @@ A continuación se va a demostrar el Teorema Erǵodico de Birkhoff paso a paso a
 		h_* x = \liminf_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x
 	\end{gather}
 	
-	Entonces $h^* = h_*$.
+	Entonces $h^* = h_*$ en c.t.p.
 	
 \end{lema}
+
+Antes de empezar con la demostración cabe resaltar lo siguiente. Definamos $a_n x$ de esta manera
+\begin{equation}
+a_n x = \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x
+\end{equation}
+
+Se observa que la definición anterior cumple la siguiente propiedad
+\begin{equation}
+\frac{n+1}{n} a_{n+1} x = a_n (fx) + \frac{1}{n} f x
+\end{equation}
+
+Si tomamos $\limsup$ y $\liminf$ cuando $n \rightarrow \infty$ entonces se tiene
+\begin{align}
+h^* &= h^* \circ f\\
+h_* &= h_* \circ f
+\end{align}
+
+Esta propiedad va a ser utilizada en la demostración del lema anterior.
+
+\begin{proof}	
+	Para $\alpha,\beta \in \mathbb{R}$ definamos
+	\begin{equation}
+		E_{\alpha,\beta} = \{ x \in X: h_* x < \beta \wedge h^* x > \alpha \}
+	\end{equation}
+	
+	Ver que
+	\begin{equation}
+		\{x \in X: h_* x < h^* x\} = \bigcup_{\beta < \alpha, \alpha,\beta \in \mathbb{Q}} E_{\alpha,\beta}
+	\end{equation}
+	
+	Observar que la unión es numerable. Para demostrar que $h^* = h_*$ para c.t.p. cuando $\beta < \alpha$ basta demostrar que $E_{\alpha,\beta}$ tiene medida nula. Como $h^* \circ f = h^*$ y $h_* \circ f = h_*$ entonces tenemos que $f^{-1}E_{\alpha,\beta} = E_{\alpha,\beta}$. Si escribimos 
+	\begin{equation}
+		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
+	\end{equation}
+	
+	entonces es claro que $E_{\alpha,\beta} \cap B_{\alpha} = E_{\alpha,\beta}$. Aplicando el lema \ref{birkhoff_lema1} se tiene
+	\begin{align}
+		\int_{E_{\alpha,\beta}} \varphi d\mu &= \int_{E_{\alpha,\beta} \cap B_{\alpha}} \varphi d\mu\\
+		&\geq \alpha \mu(E_{\alpha,\beta} \cap B_{\alpha}) = \alpha \mu(E_{\alpha,\beta})
+	\end{align}
+	
+	Reemplazando $\varphi,\alpha$ y $\beta$ por $-\varphi,-\beta$ y $-\alpha$ tenemos
+	\begin{equation}
+		\int_{E_{\alpha,\beta}} \varphi d\mu \leq \beta \mu E_{\alpha,\beta}
+	\end{equation}
+	
+	Por lo tanto
+	\begin{equation}
+		\alpha \mu E_{\alpha,\beta} \leq \beta \mu E_{\alpha,\beta}
+	\end{equation}
+	
+	y como $\beta < \alpha$ entonces $\mu E_{\alpha,\beta} = 0$. Así $h^*=h_*$ en c.t.p.
+\end{proof}
 
 \begin{lema}\label{birkhoff_lema2}
 	Sea $h^*$  definido en el lema \ref{birkhoff_lema1}. Entonces $h^* \in L^1(X,\Sigma,\mu)$.
 \end{lema}
+
+\begin{proof}
+	Definimos
+	\begin{equation}
+		g_n = \left| \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i \right|
+	\end{equation}
+	
+	Se observa que $g_n \geq 0$. Aplicando la desigualdad triangular se tiene
+	\begin{align}
+		g_n &\leq |\varphi \circ f^i|\\		
+		\int g_n d\mu &\leq \int |\varphi \circ f^i| d\mu\\
+		\int g_n d\mu &\leq \int |\varphi| d\mu
+	\end{align}
+	
+	Utilizando el Teorema de Convergenca Dominada \ref{convergencia_dominada} se concluye que
+	\begin{equation}
+		\int h^* d\mu \leq \int |\varphi| d\mu
+	\end{equation}
+	
+	Por lo tanto $h^*$ es integrable i.e. $h^* \in L^1(X,\Sigma,\mu)$.
+\end{proof}
 
 \begin{lema}\label{birkhoff_lema3}
 	Sea $h^*$  definido en el lema \ref{birkhoff_lema1}. Entonces
