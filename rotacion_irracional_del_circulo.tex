@@ -1,13 +1,17 @@
 \chapter{Propiedades de la rotación irracional en $S^1$}
 
+En este capítulo vamos a aplicar los resultados anteriores para analizar las propiedades de la rotación irracional de círculo que esta definida como $f(x) = x + \alpha \mod 1$ donde $f: [0,1] \rightarrow [0,1]$. Hay que observar que el nombre de rotación irracional de $S^1$ se debe al hecho de que $S^1 \cong \mathbb{R}/\mathbb{Z}$. Esto hace que estudiar $f$ sea equivalente a estudiar a la rotacion $T(x) = x e^{2\pi i \alpha}$.
+
+Al igual que en el capítulo anterior los resultados de este capítulo se encuentran en \cite{youtube}.
+
 \begin{lema}\label{lema_varphi_m}
-	Sea $X$ un espacio métrico compacto, $f \in \mathcal{C}(X,\mathbb{R})$, $\Phi$ un subconjunto denso de $\mathcal{C}(X, \mathbb{R})$ donde para cualquier $\varphi \in \Phi$ existe una constante $\overline{\varphi}$ (que depende de $\varphi$) tal que
+	Sea $X$ un espacio métrico compacto, $f \in \mathcal{C}(X,\mathbb{R})$, $\Phi$ un subconjunto denso de $\mathcal{C}(X, \mathbb{R})$ Para cualquier $\varphi \in \Phi$ existe una constante $\overline{\varphi}$ (que depende de $\varphi$) tal que
 	
 	\begin{equation}\label{birkhoff_eq}
 		\lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i = \overline{\varphi}
 	\end{equation}
 	
-	entonces si y solo si \eqref{birkhoff_eq} se cumple para cualquier función continua.
+	si y solo si \eqref{birkhoff_eq} se cumple para cualquier función continua.
 \end{lema}
 
 \begin{proof}
@@ -102,7 +106,7 @@
 		\left| \int \varphi d\nu - \overline{\varphi} \right| = \left| \int \varphi d\nu - \int \varphi d\mu \right| \geq \epsilon
 	\end{equation}
 	
-	Como se supuso que $\varepsilon_f(X,\Sigma)$ es un conjunto unitario entonces $\mathcal{M}_f(X,\Sigma)$ también es un conjunto unitario. Por la prueba del teorema de Krylov-Boguliubov se ve que $\nu \in \mathcal{M}_f(X,\Sigma)$. Luego $\nu \in \varepsilon_f$. 
+	Como se supuso que $\varepsilon_f(X,\Sigma)$ es un conjunto unitario entonces $\mathcal{M}_f(X,\Sigma)$ también es un conjunto unitario. Por la prueba del teorema de Krylov-Boguliubov \ref{krylov-bugoliubov} se ve que $\nu \in \mathcal{M}_f(X,\Sigma)$. Luego $\nu \in \varepsilon_f$. 
 	
 	Por lo tanto, se tiene que $\nu \neq \mu$  y que $\nu \in \varepsilon_f$. Esto contradice la unicidad de la medida ergódica y $f$-invariante.
 \end{proof}
@@ -110,7 +114,7 @@
 
 
 \begin{teorema}\label{main1}
-  Sea $ f: S^1 \rightarrow S^1 $ la rotación irracional del círculo de factor $ \alpha $ ($ f(x) = x+\alpha \mod 1 $). Entonces la medida de Lebesgue es la única medida ergódica $f$-invariante.
+  Sea $ f: [0,1] \rightarrow [0,1] $ la rotación irracional del círculo de factor $ \alpha $ ($ f(x) = x+\alpha \mod 1 $). Entonces la medida de Lebesgue es la única medida ergódica $f$-invariante.
 \end{teorema}
 
 \begin{proof}
@@ -145,7 +149,8 @@
 	tenemos
 	
 	\begin{multline}
-		\left| \frac{1}{n} \sum_{j=0}^{n-1} \varphi_m \circ f^j(x) \right| = \left| \frac{1}{n} \sum_{j=0}^{n-1} e^{2\pi imj\alpha} \right| = \frac{1}{n} \frac{|1-e^{2\pi im\alpha n}|}{|1-e^{2\pi im\alpha}|} \leq \frac{1}{n} \frac{2}{|1-e^{2\pi im\alpha}|}\\
+		\left| \frac{1}{n} \sum_{j=0}^{n-1} \varphi_m \circ f^j(x) \right| = \left| \frac{1}{n} \sum_{j=0}^{n-1} e^{2\pi imj\alpha} \right| = \frac{1}{n} \frac{|1-e^{2\pi im\alpha n}|}{|1-e^{2\pi im\alpha}|}\\
+		\leq \frac{1}{n} \frac{2}{|1-e^{2\pi im\alpha}|}
 		\rightrightarrows 0
 	\end{multline}
 	
@@ -154,7 +159,7 @@
 	Luego por \ref{lema_varphi_m} y \ref{lema_varphi_continua}, $f$ tiene una única medida de probabilidad invariante y ergódica. Esta medida es la medida de Lebesgue.
 \end{proof}
 
-\begin{teorema}
+\begin{teorema}\label{dist_uniforme}
   La órbita de cualquier $ x \in S^1 $ está uniformemente distribuída con respecto a la medida de Lebesgue.
 \end{teorema}
 

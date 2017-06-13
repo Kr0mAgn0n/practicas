@@ -1,9 +1,9 @@
-\chapter{Teoría de la Medida}
+\chapter{Conceptos preliminares de Teoría de la Medida}
 
-En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida que van a ser usados en los siguientes capítulos. Los conceptos básicos serán comentados y los importantes serán resaltados.
+En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida que van a ser usados en los siguientes capítulos. Los conceptos básicos serán comentados y los importantes serán resaltados. la referencia usada en esta sección es \cite{bartle}.
 
 \begin{teorema}[Teorema de la Convergencia Monótona]\label{convergencia_monotona}
-	Si $(f_n)$ es una sucesión creciente de funciones medibles no negativas que converge a $f$ entonces
+	Sean $(X,\Sigma,\mu)$ un espacio medible, los $f_n: X \rightarrow \mathbb{R}$ y $f: X \rightarrow \mathbb{R}$. Si $(f_n)$ es una sucesión creciente de funciones medibles no negativas que converge a $f$ entonces
 	\begin{equation}
 		\int f d\mu = \lim \int f_n d\mu
 	\end{equation}
@@ -20,9 +20,9 @@ En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida
 		\lim \int f_n d\mu \leq \int f d\mu
 	\end{equation}
 	
-	Por otro lado, sea $0 < \alpha < 1$ cualquiera y $\varphi$ una función simple cualquiera tal que $0 \leq \varphi \leq f$. Se define
+	Por otro lado, sea $0 < \alpha < 1$ cualquiera y $\varphi: X \rightarrow \mathbb{R}$ una función simple cualquiera tal que $0 \leq \varphi \leq f$. Se define
 	\begin{equation}
-		A_n = \{ x \in X: f_n x \geq \alpha (\varphi x) \}
+		A_n = \{ x \in X: f_n(x) \geq \alpha \varphi(x) \}
 	\end{equation}
 	
 	Se puede observar que $A_n \subset A_{n+1}$ y que $A_n \rightarrow X$ cuando $n \rightarrow \infty$. Luego
@@ -40,15 +40,10 @@ En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida
 		\int \alpha \varphi d\mu \leq \lim \int f_n d\mu
 	\end{equation}
 	
-	Como el $\alpha$ era arbitrario tal que $0 < \alpha < 1$ entonces
+	Definamos $B=\{\varphi \text{ simple}: \varphi \leq f \}$ y $C = \{ \alpha \varphi: \varphi \in B \}$ con $\alpha \in (0,1)$ fijo arbitrario. Se observa que $B=C$. Luego $\alpha \varphi$ representa todas las funciones simples no mayores que $f$. Entonces, tomando supremo
 	\begin{equation}
-		\int \varphi d\mu \leq \lim \int f_n d\mu
-	\end{equation}
-	
-	Como $\varphi$ era una función simple arbitraria tal que $\varphi \leq f$ entonces
-	\begin{equation}
-		\int f d\mu = \sup_\varphi \int \varphi d\mu \leq \lim \int f_n d\mu
-	\end{equation}
+		\int f d\mu \leq \lim \int f_n d\mu
+	\end{equation}	
 	
 	Por lo tanto, $\int f d\mu = \lim \int f_n d\mu$.
 \end{proof}
@@ -79,7 +74,7 @@ En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida
 \end{proof}
 
 \begin{teorema}[Teorema de Convergencia Dominada de Lebesgue]\label{convergencia_dominada}
-	Sea $(f_n)$ una sucesión de funciones integrables que convergente puntualmente en casi todo punto  a una función medible $g$. Si existe una función integrable $g$ tal que $|f_n| \leq g$ para todo $n$, entonces $f$ es integrable y
+	Sea $(X,\Sigma,\mu)$ un espacio de medible y $f_n,g,f: X \rightarrow \mathbb{R}$. Sea $(f_n)$ una sucesión de funciones integrables que convergente puntualmente en casi todo punto  a una función medible $g$. Si existe una función integrable $g$ tal que $|f_n| \leq g$ para todo $n$, entonces $f$ es integrable y
 	\begin{equation}
 		\int f d\mu = \lim_{n \rightarrow \infty} \int f_n d\mu
 	\end{equation}
@@ -132,7 +127,7 @@ En este capítulo se expondrán los conceptos necesarios de Teoría de la Medida
 \begin{teorema}[Radon-Nikodyn]\label{radon-nikodyn}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. Sea $\nu$ una medida definida en $\Sigma$ con $\nu \ll \mu$. Entonces existe una función no negativa medible $f$ tal que	
 	\begin{equation}
-		\nu A = \int_A f d\mu, \forall A \in \Sigma
+		\forall A \in \Sigma, \nu A = \int_A f d\mu
 	\end{equation}
 	
 	Además $f$ es única en el sentido de que si $g$ es una función que cumple la misma propiedad, entonces $f = g$ $\mu$-c.t.p.

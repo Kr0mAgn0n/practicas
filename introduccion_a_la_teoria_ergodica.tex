@@ -1,8 +1,10 @@
 \chapter{Introducción a la Teoría Ergódica}
 
-En este capítulo se desarrollaran los conceptos necesarios para  demostrar el Teorema Ergódica de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
+En este capítulo se desarrollaran los conceptos necesarios para  demostrar el Teorema Ergódico de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
 
-A partir de ahora consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$.
+Los resultados de este capítulo se encuentran en \cite{youtube} en forma de video de las clases del curso de Teoría Ergódica del International Centre for Theoretical Physics.
+
+A partir de ahora consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$ donde $\mathcal{C}(X) = \{f: X \rightarrow X: f \text{ continua}\}$.
 
 A continuación se van a enumerar las definiciones de los conceptos usados en este capítulo.
 
@@ -141,11 +143,11 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 \begin{proof}
 	Se demostrará que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto en la topología débil *.
 	
-	Se sabe que cualquier conjunto compacto de un espacio métrico es secuencialmente compacto y viceversa. La demostración se puede encontrar en \cite{schep}.
+	Se sabe que cualquier conjunto compacto de un espacio métrico es secuencialmente compacto y viceversa. La demostración se puede encontrar en \cite{schep}, página 2, Teorema 2.1.
 	
-	Por otro lado, en \cite{walkden} se puede ver la demostración que $\mathcal{M}(X,\Sigma)$ es un espacio métrico. En conclusión, solo se necesita demostrar que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto para afirmar que es compacto.
+	Por otro lado, en \cite{walkden}, página 1-2, sección 10.2, se puede ver la demostración que $\mathcal{M}(X,\Sigma)$ es un espacio métrico. En conclusión, solo se necesita demostrar que $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto para afirmar que es compacto.
 	
-	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión. Por otro lado, como $\mathcal{C}(X)$ es separable entonces existe un conjunto denso $\{f_n\}_{n \geq 1} \subset \mathcal{C}(X)$. Esto quiere decir que para cualquier $f \in \mathcal{C}(X)$ se tiene que dando un $\epsilon > 0$ existe $f_i$ tal que
+	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión. Por otro lado, como $\mathcal{C}(X)$ es separable entonces existe un conjunto denso $\{f_n\}_{n \geq 1} \subset \mathcal{C}(X)$. Esto quiere decir que para cualquier $f \in \mathcal{C}(X)$ se tiene que dado un $\epsilon > 0$ existe $f_i, i \in \mathbb{N}$ tal que
 	
 	\begin{equation}
 		|f - f_i| < \epsilon
@@ -160,20 +162,20 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	Para $f_1$ tomemos $I(\mu_n,f_1)$. Se observa que $I(\mu_n,f_1)$ es una sucesión en $\mathbb{R}$. Entonces
 	
 	\begin{equation}
-		|I(\mu_n,f_1)| = \left| \int f_1 d\mu_n \right| \leq \int |f_1| d\mu_n = |f_1|
+		|I(\mu_n,f_1)| = \left| \int f_1 d\mu_n \right| \leq \int \|f_1\| d\mu_n = \|f_1\|
 	\end{equation} 
 	
 	$I(\mu_n,f_1)$ es una sucesión acotada en $\mathbb{R}$ entonces tiene una subsucesión convergente. Sea el conjunto $\mathbb{N}_1 \subset \mathbb{N}$ el conjunto de los índices de la subsucesión. 
 	
 	Ahora trabajando con los índices $\mathbb{N}_1$ se puede ver también que $I(\mu_n,f_2)$, para $n \in \mathbb{N}_1$, también es acotada. Entonces se puede tomar una subsucesión convergente con índices $\mathbb{N}_2 \subset \mathbb{N}_1$.
 	
-	Este proceso se puede seguir hasta conseguir un conjunto de índices $\mathbb{N}_i \subset \mathbb{N}_{i-1} \subset \ldots \subset \mathbb{N}_1 \subset \mathbb{N}$ tal que $I(\mu_n,f_j)$ es convergente para $n \in \mathbb{N}_i$ y para $1 \leq j \leq i$. A está sucesión convergente se le puede extraer una subsucesión $I()$ que seguirá siendo convergente al mismo límite. Sea $I(\mu_{n_i},f_i)$ una subsucesión de las antes nombradas con $n_i \in \mathbb{N}_i$. Como $I(\mu_{n_i},f_i)$ es convergente en $\mathbb{R}$ entonces es una sucesión de Cauchy. Entonces, para el $\epsilon > 0$ que se tomo al inicio, existe $N \in \mathbb{N}$ tal que para $m,k > N$ se cumple
+	Este proceso se puede seguir hasta conseguir un conjunto de índices $\mathbb{N}_i \subset \mathbb{N}_{i-1} \subset \ldots \subset \mathbb{N}_1 \subset \mathbb{N}$ tal que $I(\mu_n,f_j)$ sea convergente para $n \in \mathbb{N}_i$,$1 \leq j \leq i$. A está sucesión convergente se le puede extraer una subsucesión que seguirá siendo convergente al mismo límite. Sea $I(\mu_{n_i},f_i)$ una subsucesión de las antes nombradas con $n_i \in \mathbb{N}_i$. Como $I(\mu_{n_i},f_i)$ es convergente en $\mathbb{R}$ entonces es una sucesión de Cauchy. Entonces, para $\epsilon > 0$ que se eligió al inicio, existe $N \in \mathbb{N}$ tal que para $m,k > N$ se cumple
 		
 	\begin{equation}
 		|I(\mu_{n_m},f_i) - I(\mu_{n_k},f_i)| < \epsilon
 	\end{equation}
 	
-	Luego, para el $f$ tomado al inicio, se observa lo siguiente
+	Luego, para $f$ tomado al inicio, se observa lo siguiente
 	
 	\begin{align}
 		|I(\mu_{n_m},f) - I(\mu_{n_k},f)| &\leq |I(\mu_{n_m},f) - I(\mu_{n_m},f_i) | \\
@@ -196,16 +198,16 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 		Af = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
 	\end{equation}
 	
-	Se observa que $A$ es lineal y acotado. Entonces se puede aplicar el Teorema de Representación de Riesz \ref{riesz}. En conclusión, existe $\mu \in \mathcal{M}(X,\Sigma)$ tal que
+	Se observa que $A$ es lineal y acotado. Entonces se puede aplicar el Teorema de Representación de Riesz \cite{riesz}, Teorema 6.2.5. En conclusión, existe $\mu \in \mathcal{M}(X,\Sigma)$ tal que
 	
 	\begin{equation}
 		Af = \int f d\mu = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
 	\end{equation}
 	
-	Por lo tanto $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto con la topología débil *.
+	Por lo tanto $\mathcal{M}(X,\Sigma)$ es secuencialmente compacto con la topología débil*.
 \end{proof}
 
-\begin{teorema}[Teorema de Krylov-Bugoliubov]
+\begin{teorema}[Teorema de Krylov-Bugoliubov]\label{krylov-bugoliubov}
 	$\mathcal{M}_f(X,\Sigma)$ es no vacío, convexo y compacto.
 \end{teorema}
 
@@ -238,7 +240,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	=& \mu_{n_j} - \frac{\mu}{n_j} + \frac{f^{n_j}_* \mu}{n_j}
 	\end{align}
 	
-	Cuando $n_j \rightarrow \infty$ se ve que $f_* \mu_{n_j} \rightarrow \mu$. Por lo tanto $f_*\mu=\mu$. Por lo tanto existe $\mu \in \mathcal{M}_f(X,\Sigma)$ con lo que $\mathcal{M}_f(X,\Sigma) \neq \emptyset$.
+	Cuando $n_j \rightarrow \infty$ se ve que $f_* \mu_{n_j} \rightarrow \mu$. Por lo tanto $f_*\mu=\mu$. Luego existe $\mu \in \mathcal{M}_f(X,\Sigma)$ con lo que $\mathcal{M}_f(X,\Sigma) \neq \emptyset$.
 	
 	Ahora vamos a probar que $\mathcal{M}_f(X,\Sigma)$ es convexo. Sea $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$, hay que demostrar que
 	
@@ -278,7 +280,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 \end{teorema}
 
 \begin{proof}
-	Supongamos que $\mu \notin \varepsilon_f(X,\Sigma)$. Entonces existe $A \in \Sigma_f$ tal que $\mu A \in (0,1)$. Definimos las medidas de probabilidad $\mu_1,\mu_2$ tales que
+	Supongamos que $\mu \notin \varepsilon_f(X,\Sigma)$. Entonces existe $A \in \Sigma_f$ tal que $\mu A \in (0,1)$. Definamos las medidas de probabilidad $\mu_1,\mu_2$ tales que
 	\begin{align}
 		\mu_1 B &= \frac{\mu(B \cap A)}{\mu A}\\
 		\mu_2 B &= \frac{\mu(B \cap A^c)}{\mu A}
@@ -295,19 +297,23 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 		&= \mu_1 B
 	\end{align}
 	
-	Entonces $\mu_1 \in \mathcal{M}_f(X,\Sigma)$. Haciendo lo mismo para $\mu_2$ se tiene que $\mu_2 \in \mathcal{M}_f(X,\Sigma)$.
+	Entonces $\mu_1 \in \mathcal{M}_f(X,\Sigma)$. Haciendo lo mismo para $\mu_2$ se tiene que\\
+	$\mu_2 \in \mathcal{M}_f(X,\Sigma)$.
 	
-	Ahora supongamos que $\mu \in \varepsilon_f(X,\Sigma)$ y supongamos que existen $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$ tales que
+	Ahora supongamos que $\mu \in \varepsilon_f(X,\Sigma)$ y supongamos que existen\\
+	$\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$ tales que
 	\begin{equation}
 		\mu = t\mu_1 + (1-t)\mu_2, t \in (0,1)
 	\end{equation}
 	
-	Demostraremos que lo último implica que $\mu_1=\mu_2=\mu$. Vamos a demostrar que $\mu_2=\mu$. Se observa que $\mu_1 \ll \mu$. Luego, por el teorema de Radon-Nykodin \ref{radon-nikodyn}, existe $h_1$ no negativa tal para cualquier $B \in \Sigma$
+	Demostraremos que lo último implica que $\mu_1=\mu_2=\mu$. 
+	
+	Vamos a demostrar que $\mu_2=\mu$. Se observa que $\mu_1 \ll \mu$. Luego, por el teorema de Radon-Nykodin \ref{radon-nikodyn}, existe $h_1$ no negativa tal para cualquier $B \in \Sigma$
 	\begin{equation}
 		\mu_1 B = \int_B h_1 d\mu
 	\end{equation}
 	
-	Si se demuestra que $h_1 = 1$ en c.t.p. entonces tendríamos la equivalencia.
+	Si se demuestra que $h_1 = 1$ en c.t.p. entonces tendremos la equivalencia.
 	
 	Sean
 	\begin{align}
@@ -367,7 +373,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	Por lo tanto $\mu_1=\mu_2=\mu$.
 \end{proof}
 
-A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estudio principal de este capítulo. La demostración se va a hacer paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.
+A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es el estudio principal de este capítulo. La demostración se va a hacer paso a paso a través de una serie de lemas. Este teorema da un corolario que va a a ser útil para dar algunas afirmaciones acerca del estudio de la rotación irracional de $S^1$.
 
 \begin{lema}[Máxima desigualdad]\label{maxima_desigualdad}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es $f$-invariante y $\varphi \in L^1(X,\Sigma,\mu)$. Se define $\varphi_0 = 0$ y para $n \geq 1$
@@ -385,7 +391,9 @@ A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estud
 \end{lema}
 
 \begin{proof}
-	Se ve que $\varPhi_n \in L^1(X,\Sigma,\mu)$. Para $0 \leq j \leq n$, tenemos $\varPhi_n \geq \varphi_j$, así $\varPhi_n \circ f \geq \varphi_j \circ f$. Luego
+	Se ve que $\varPhi_n \in L^1(X,\Sigma,\mu)$. 
+	
+	Para $0 \leq j \leq n$, tenemos $\varPhi_n \geq \varphi_j$, así $\varPhi_n \circ f \geq \varphi_j \circ f$. Luego
 	\begin{equation}
 		\varPhi_n \circ f + \varphi \geq \varphi_j \circ f + \varphi = \varphi_{j+1}
 	\end{equation}
@@ -413,7 +421,7 @@ A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estud
 \end{proof}
 
 \begin{lema}\label{maxima_desigualdad_cor}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Si se define	
+	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Definamos	
 	\begin{equation}
 		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
 	\end{equation}
@@ -459,7 +467,7 @@ A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estud
 \end{proof}
 
 \begin{lema}\label{birkhoff_lema1}
-	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Se definen
+	Sean $(X,\Sigma,\mu)$ un espacio de probabilidad y $\varphi \in L^1(X,\Sigma,\mu)$. Definamos
 	
 	\begin{gather}
 		h^* x = \limsup_{n \rightarrow \infty} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x\\
@@ -470,7 +478,9 @@ A continuación se va a exponer el Teorema Erǵodico de Birkhoff que es la estud
 	
 \end{lema}
 
-Antes de empezar con la demostración cabe resaltar lo siguiente. Definamos $a_n x$ de esta manera
+Antes de empezar con la demostración cabe resaltar lo siguiente. 
+
+Definamos $a_n x$ de esta manera
 \begin{equation}
 a_n x = \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x
 \end{equation}
@@ -494,12 +504,14 @@ Esta propiedad va a ser utilizada en la demostración del lema anterior.
 		E_{\alpha,\beta} = \{ x \in X: h_* x < \beta \wedge h^* x > \alpha \}
 	\end{equation}
 	
-	Ver que
+	Notamos
 	\begin{equation}
 		\{x \in X: h_* x < h^* x\} = \bigcup_{\beta < \alpha, \alpha,\beta \in \mathbb{Q}} E_{\alpha,\beta}
 	\end{equation}
 	
-	Observar que la unión es numerable. Para demostrar que $h^* = h_*$ para c.t.p. cuando $\beta < \alpha$ basta demostrar que $E_{\alpha,\beta}$ tiene medida nula. Como $h^* \circ f = h^*$ y $h_* \circ f = h_*$ entonces tenemos que $f^{-1}E_{\alpha,\beta} = E_{\alpha,\beta}$. Si escribimos 
+	Observar que la unión es numerable. Para demostrar que $h^* = h_*$ c.t.p. cuando $\beta < \alpha$ basta demostrar que $E_{\alpha,\beta}$ tiene medida nula. Como $h^* \circ f = h^*$ y $h_* \circ f = h_*$ entonces tenemos que $f^{-1}E_{\alpha,\beta} = E_{\alpha,\beta}$. 
+	
+	Si escribimos 
 	\begin{equation}
 		B_{\alpha} = \left\{ x \in X: \sup_{n \geq 1} \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i x > \alpha \right\}
 	\end{equation}
@@ -520,7 +532,7 @@ Esta propiedad va a ser utilizada en la demostración del lema anterior.
 		\alpha \mu E_{\alpha,\beta} \leq \beta \mu E_{\alpha,\beta}
 	\end{equation}
 	
-	y como $\beta < \alpha$ entonces $\mu E_{\alpha,\beta} = 0$. Así $h^*=h_*$ en c.t.p.
+	y como $\beta < \alpha$ entonces $\mu E_{\alpha,\beta} = 0$. Así $h^*=h_*$ c.t.p.
 \end{proof}
 
 \begin{lema}\label{birkhoff_lema2}
@@ -528,7 +540,7 @@ Esta propiedad va a ser utilizada en la demostración del lema anterior.
 \end{lema}
 
 \begin{proof}
-	Definimos
+	Definamos
 	\begin{equation}
 		g_n = \left| \frac{1}{n} \sum_{i=0}^{n-1} \varphi \circ f^i \right|
 	\end{equation}

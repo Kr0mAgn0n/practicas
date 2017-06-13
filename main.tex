@@ -11,7 +11,7 @@
 \usepackage{biblatex}
 \usepackage{hyperref}
 \usepackage{setspace}
-\usepackage{authblk}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
 
 \newtheorem{teorema}{Teorema}[chapter]
 
@@ -32,23 +32,52 @@
 % Esto es para definir el espacio entre párrafos
 \setlength{\parskip}{1em}
 
-\title{Análisis de la rotación irracional de $S^1$}
-\author{Mario Lamas\\Código: 20032605J}
-\affil{Facultad de Ciencias\\Universidad Nacional de Ingeniería}
-
 \onehalfspacing
 
 \begin{document}
+	\pagenumbering{gobble}
+	\begin{minipage}{0.15\linewidth}
+		\includegraphics[width=\linewidth]{logo.jpg}
+	\end{minipage}
+	\hspace{0.05\linewidth}	
+	\begin{minipage}{0.8\linewidth}
+		\doublespacing
+		{\large UNIVERSIDAD NACIONAL DE INGENIERÍA\\		
+		FACULTAD DE CIENCIAS\\		
+		ESCUELA PROFESIONAL DE MATEMÁTICA}
+	\end{minipage}
 	
-	\maketitle
+	\vspace{2cm}
+	
+	\begin{center}
+		{\Large \textbf{INFORME DE PRÁCTICAS PRE-PROFESIONALES}}
+	\end{center}
+
+	\vspace{2cm}
+
+	\begin{center}
+		{\Large \textbf{Título}: Análisis de la rotación irracional de $S^1$\\		
+		\textbf{Nombre}: Mario Alexis Lamas Espinoza\\		
+		\textbf{Código}: 20032605J\\			
+		\textbf{Asesor}: Jesús Cernades\\}
+	\end{center}
+
+	\begin{center}
+		{\Large \textbf{\today}}
+	\end{center}
+	
+	\onehalfspacing
 	
 	\tableofcontents
+	\pagenumbering{arabic}
 	
 	\input{introduccion}
 	\input{teoria_de_la_medida}
 	\input{introduccion_a_la_teoria_ergodica} 
 	\input{rotacion_irracional_del_circulo}
+	\input{conclusiones}
 	\input{anexo}
 
-\printbibliography
+\printbibliography[heading=bibintoc]
+
 \end{document}
