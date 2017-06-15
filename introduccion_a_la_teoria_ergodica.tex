@@ -1,10 +1,10 @@
 \chapter{Introducción a la Teoría Ergódica}
 
-En este capítulo se desarrollaran los conceptos necesarios para  demostrar el Teorema Ergódico de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
+En este capítulo se desarrollarán los conceptos necesarios para  demostrar el Teorema Ergódico de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
 
 Los resultados de este capítulo se encuentran en \cite{youtube} en forma de video de las clases del curso de Teoría Ergódica del International Centre for Theoretical Physics.
 
-A partir de ahora consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y $f \in \mathcal{C}(X)$ donde $\mathcal{C}(X) = \{f: X \rightarrow X: f \text{ continua}\}$.
+A partir de ahora consideraremos a $X$ como un espacio métrico compacto, a $\Sigma$ como un $\sigma$-álgebra de $X$ y \mbox{$f \in \mathcal{C}(X)$ donde $\mathcal{C}(X) = \{f: X \rightarrow X: f \text{ continua}\}$}.
 
 A continuación se van a enumerar las definiciones de los conceptos usados en este capítulo.
 
@@ -198,7 +198,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 		Af = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
 	\end{equation}
 	
-	Se observa que $A$ es lineal y acotado. Entonces se puede aplicar el Teorema de Representación de Riesz \cite{riesz}, Teorema 6.2.5. En conclusión, existe $\mu \in \mathcal{M}(X,\Sigma)$ tal que
+	Se observa que $A$ es lineal y acotado. Entonces se puede aplicar el Teorema de Representación de Riesz \cite{riesz}, Teorema 6.2.5. En conclusión, existe \mbox{$\mu \in \mathcal{M}(X,\Sigma)$} tal que
 	
 	\begin{equation}
 		Af = \int f d\mu = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
@@ -257,13 +257,13 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	=& (t\mu_1 + (1-t)\mu_2)(A)
 	\end{align}
 	
-	Luego $f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2$ con lo que $t\mu_1 + (1-t)\mu_2 \in \mathcal{M}_f(X,\Sigma)$.
+	Luego $f_*(t\mu_1 + (1-t)\mu_2) = t\mu_1 + (1-t)\mu_2$ con lo que \mbox{$t\mu_1 + (1-t)\mu_2 \in \mathcal{M}_f(X,\Sigma)$}.
 	
 	Finalmente, probaremos que $\mathcal{M}_f(X,\Sigma)$ es compacto. Como sabemos que $\mathcal{M}(X,\Sigma)$ es compacto porque $M$ es compacto entonces sólo hay que probar que $\mathcal{M}_f(X,\Sigma)$ es cerrado.
 	
 	Sea $(\mu_n) \subset \mathcal{M}_f(X,\Sigma)$ una sucesión tal que $\mu_n \rightarrow \mu$. Hay que demostrar que $\mu \in \mathcal{M}_f(X,\Sigma)$.
 	
-	Por definición de convergencia en la topología débil * se tiene que, en particular, para $\varphi \circ f \in \mathcal{C}(X)$ con $\varphi \in \mathcal{C}(X)$ lo siquiente
+	Por definición de convergencia en la topología débil* se tiene que, en particular, para $\varphi \circ f \in \mathcal{C}(X)$ con $\varphi \in \mathcal{C}(X)$ lo siguiente
 	
 	\begin{align}
 	\int \varphi \circ f d\mu &= \lim_{n \rightarrow \infty} \int \varphi \circ f d\mu_n\\
@@ -288,7 +288,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	
 	donde $B \in \Sigma$ cualquiera.
 	
-	Se observa que $\mu = (\mu A) \mu_1 + (\mu(A^c)) \mu_2$ con $\mu A \in (0,1)$. Entonces $\mu$ no es punto extremo de $\mathcal{M}(X,\Sigma)$ pero lo que se quiere es no sea punto extremo de $\mathcal{M}_f(X,\Sigma)$. Para demostrar la última afirmación se tiene que demostrar que $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$. En efecto, sea $B \in \Sigma$ entonces
+	Se observa que $\mu = (\mu A) \mu_1 + (\mu(A^c)) \mu_2$ con $\mu A \in (0,1)$. Entonces $\mu$ no es punto extremo de $\mathcal{M}(X,\Sigma)$ pero lo que se quiere es que no sea punto extremo de $\mathcal{M}_f(X,\Sigma)$. Para demostrar la última afirmación se tiene que demostrar que $\mu_1,\mu_2 \in \mathcal{M}_f(X,\Sigma)$. En efecto, sea $B \in \Sigma$ entonces
 	\begin{align}
 		\mu_1(f^{-1}B) &= \frac{\mu(f^{-1}B \cap A)}{\mu A}\\
 		&= \frac{\mu(f^{-1}B \cap f^{-1}A)}{\mu A}\\
@@ -308,7 +308,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	
 	Demostraremos que lo último implica que $\mu_1=\mu_2=\mu$. 
 	
-	Vamos a demostrar que $\mu_2=\mu$. Se observa que $\mu_1 \ll \mu$. Luego, por el teorema de Radon-Nykodin \ref{radon-nikodyn}, existe $h_1$ no negativa tal para cualquier $B \in \Sigma$
+	Vamos a demostrar que $\mu_2=\mu$. Se observa que $\mu_1 \ll \mu$. Luego, por el teorema de Radon-Nykodin \ref{radon-nikodyn}, existe $h_1$ no negativa tal que para cualquier $B \in \Sigma$
 	\begin{equation}
 		\mu_1 B = \int_B h_1 d\mu
 	\end{equation}
