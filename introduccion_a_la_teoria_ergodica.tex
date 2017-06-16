@@ -24,7 +24,7 @@ A continuación se van a enumerar las definiciones de los conceptos usados en es
 	\end{equation}
 \end{definicion}
 
-Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
+Con esta definición se puede probar que $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
 
 \begin{definicion}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es ergódica si para cualquier $A \in \Sigma$ se tiene	
@@ -61,7 +61,7 @@ Con esta definición se puede probar $\Sigma_f$ es un $\sigma$-álgebra. Se pued
 	\end{equation}
 \end{definicion}
 
-Las definiciones anteriores servirán para analizar las propiedades topológicas del espacio de medida de probabilidad pero aún falta el concepto de convergencia dentro de ese conjunto. Para eso de definirá el concepto de la convergencia en la topología débil* que servirá para tener una noción de como afirmar que una sucesión de medidas de probabilidad converge a una medida probabilidad.
+Las definiciones anteriores servirán para analizar las propiedades topológicas del espacio de medida de probabilidad pero aún falta el concepto de convergencia dentro de ese conjunto. Para eso se definirá el concepto de la convergencia en la topología débil* que servirá para tener una noción de como afirmar que una sucesión de medidas de probabilidad converge a una medida probabilidad.
 
 \begin{definicion}
 	Sea $(\mu_n) \subset \mathcal{M}(X,\Sigma)$ una sucesión de medidas de probabilidad y $\mu \in \mathcal{M}(X,\Sigma)$. Se dice que $\mu_n \rightarrow \mu$ en la topología débil* si
@@ -70,7 +70,7 @@ Las definiciones anteriores servirán para analizar las propiedades topológicas
 	\end{equation}
 \end{definicion}
 
-A continuación se analizará la existencia de medidas $f$-invariantes y la topología del conjunto de medidas de probabilidad $f$-invariante una vez que ya se prueba la existencia de alguna medida de ese tipo. Ese análisis se hará a través del desarrollo del Teorema de Krylov-Bugoliubov diviendo la demostración en varios lemas.
+A continuación se analizará la existencia de medidas $f$-invariantes y la topología del conjunto de medidas de probabilidad $f$-invariante una vez que ya se prueba la existencia de alguna medida de ese tipo. Ese análisis se hará a través del desarrollo del Teorema de Krylov-Bugoliubov dividiendo la demostración en varios lemas.
 
 \begin{lema}\label{lema1_krylov-bugoliubov}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad y sean $\varphi \in \mathcal{C}(X)$. Entonces
@@ -89,7 +89,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 		&= \int \chi_A \circ f d\mu
 	\end{align}
 	
-	Esto también cumple si $\varphi$ fuese una función simple.
+	Esto también se cumple si $\varphi$ fuese una función simple.
 	
 	Si $\varphi$ fuese una función integrable no negativa entonces $\varphi$ es el límite puntual de una secuencia creciente de $\{ \varphi_n \}$ de funciones simples. Luego la sucesión $\{ \varphi_n \circ f \}$ es una sucesión creciente también de funciones simples que convergen puntualmente a $\varphi \circ f$.
 	
@@ -192,7 +192,7 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 		I(\mu_{n_i},f) = \int f d\mu_{n_i}
 	\end{equation}
 	
-	es convergente. Sea $A: \mathcal{C}(X) \rightarrow \mathbb{R}$ tal que esta definida como
+	es convergente. Sea $A: \mathcal{C}(X) \rightarrow \mathbb{R}$ tal que está definida como
 	
 	\begin{equation}
 		Af = \lim_{i \rightarrow \infty} \int f d \mu_{n_i}
@@ -324,13 +324,13 @@ A continuación se analizará la existencia de medidas $f$-invariantes y la topo
 	Se observa que
 	\begin{align}
 		\mu_1 B &= \int_B h_1 d\mu\\
-		&= \int_{B \cap f^{-1}B} h_1 d\mu + \int_{B \setminus f^{-1}B} h_1 d\mu\\
+		&= \int_{B \cap f^{-1}B} h_1 d\mu + \int_{B \setminus f^{-1}B} h_1 d\mu
 	\end{align}
 	
 	También se observa que
 	\begin{align}
 		\mu_1(f^{-1}B) &= \int_{f^{-1}B} h_1 d\mu\\
-		&= \int_{f^{-1}B \cap B} h_1 d\mu + \int_{f^{-1}B \setminus B} h_1 d\mu\\
+		&= \int_{f^{-1}B \cap B} h_1 d\mu + \int_{f^{-1}B \setminus B} h_1 d\mu
 	\end{align}
 	
 	Como $\mu_1 \in \mathcal{M}_f(X,\Sigma)$ entonces $\mu_1 B = \mu_1(f^{-1}B)$.
