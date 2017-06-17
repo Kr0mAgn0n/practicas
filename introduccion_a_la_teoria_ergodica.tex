@@ -1,6 +1,6 @@
 \chapter{Introducción a la Teoría Ergódica}
 
-En este capítulo se desarrollarán los conceptos necesarios para  demostrar el Teorema Ergódico de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional de círculo.
+En este capítulo se desarrollarán los conceptos necesarios para  demostrar el Teorema Ergódico de Birkhoff que será de utilidad en el siguiente capítulo para analizar las propiedades de la rotación irracional del círculo.
 
 Los resultados de este capítulo se encuentran en \cite{youtube} en forma de video de las clases del curso de Teoría Ergódica del International Centre for Theoretical Physics.
 
@@ -24,7 +24,7 @@ A continuación se van a enumerar las definiciones de los conceptos usados en es
 	\end{equation}
 \end{definicion}
 
-Con esta definición se puede probar que $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ por que $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
+Con esta definición se puede probar que $\Sigma_f$ es un $\sigma$-álgebra. Se puede observar que $\emptyset \in \Sigma_f$ porque $\mu(f^{-1} \emptyset) = \mu \emptyset = 0$. Sea $A \in \Sigma_f$. Entonces $\mu(f^{-1}(X \setminus A)) =  \mu(X \setminus f^{-1}A) = 1 - \mu(f^{-1}A) = 1 - \mu A = \mu(X \setminus A)$. Luego $X \setminus A \in \Sigma$. Por último, sea $\{A_n\}_{n \geq 1} \subset \Sigma_f$. Entonces $\mu(f^{-1}A_n \setminus A_n) = 0$. Se sigue que $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) \leq \mu(\cup_{n \geq 1} (f^{-1}A_n \setminus A_n)) \leq \sum_{n \geq 1} \mu(f^{-1}A_n \setminus A_n) = 0$. Por lo tanto $\mu(f^{-1}(\cup_{n \geq 1} A_n) \setminus (\cup_{n \geq 1} A_n)) = 0$. Con esto se concluye que $\Sigma_f$ es un $\sigma$-álgebra. 
 
 \begin{definicion}
 	Sea $(X,\Sigma,\mu)$ un espacio de probabilidad. $\mu$ es ergódica si para cualquier $A \in \Sigma$ se tiene	
